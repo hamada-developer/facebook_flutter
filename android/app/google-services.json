@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "3998675420",
+    "project_id": "facebook-fbd94",
+    "storage_bucket": "facebook-fbd94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3998675420:android:f68e5f5672261cafa55f19",
+        "android_client_info": {
+          "package_name": "com.example.facebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "3998675420-bv9v3la0lmf61fesva45ngc874okpcnc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.facebook",
+            "certificate_hash": "78e0134f4fc52a7fe85afe381320b99418d7ffce"
+          }
+        },
+        {
+          "client_id": "3998675420-1mse90hsde9a4hrj72bmapb2gmk6fd7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArnKLbvrjEk45FsSHbPAD9rTFs7rIgjvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "3998675420-1mse90hsde9a4hrj72bmapb2gmk6fd7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
