@@ -2,16 +2,16 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:facebook/modul/home/home_screen.dart';
 import 'package:facebook/modul/login/login_cubit/login_cubit.dart';
 import 'package:facebook/modul/login/login_cubit/login_states.dart';
+import 'package:facebook/modul/register/register_screen.dart';
 import 'package:facebook/shared/components/component.dart';
-import 'package:facebook/shared/components/constant.dart';
-import 'package:facebook/shared/components/style/color.dart';
+import 'package:facebook/shared/style/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatelessWidget {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +163,9 @@ class LoginScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: 60.0),
                           width: double.infinity,
                           child: MaterialButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              navigateTo(context: context , widget: RegisterScreen());
+                            },
                             child: Text(
                               'أنشاء حساب جديد على فيسبوك',
                               style: TextStyle(

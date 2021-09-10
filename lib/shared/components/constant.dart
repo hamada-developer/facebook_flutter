@@ -1,4 +1,4 @@
-import 'package:facebook/shared/components/style/color.dart';
+import 'package:facebook/shared/style/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

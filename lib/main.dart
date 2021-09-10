@@ -1,7 +1,7 @@
 import 'package:facebook/modul/login/login_screen.dart';
 import 'package:facebook/shared/components/bloc_observer.dart';
 import 'package:facebook/shared/components/constant.dart';
-import 'package:facebook/shared/components/style/color.dart';
+import 'package:facebook/shared/style/color.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
