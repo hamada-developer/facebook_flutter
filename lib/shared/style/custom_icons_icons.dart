@@ -30,4 +30,9 @@ class CustomIcons {
   static const IconData store = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData group = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData video_player = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bell__2_ = IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData comment_svgrepo_com = IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData like_svgrepo_com = IconData(0xe81a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData arrow_curved_to_the_left_svgrepo_com = IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData gallery = IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
