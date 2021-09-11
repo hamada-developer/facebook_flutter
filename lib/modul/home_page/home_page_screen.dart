@@ -1,25 +1,4 @@
-import 'package:arabic_numbers/arabic_numbers.dart';
 import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/local_data.dart';
-import 'package:facebook/model/user_model.dart';
-import 'package:facebook/shared/components/component.dart';
 import 'package:facebook/shared/components/constant.dart';
 import 'package:facebook/shared/style/color.dart';
 import 'package:facebook/shared/style/custom_icons_icons.dart';
@@ -118,10 +97,10 @@ class HomePageScreen extends StatelessWidget {
     LocalData(
       name: 'asdasdfasdsdasda',
       url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRXs4XLutykcrFtsalR7IDFbn2iy53MB6dpg&usqp=CAU',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
       message: 'asdasdasdasdasdasdds',
       story:
-          'https://lh3.googleusercontent.com/proxy/4UMJpkPxL2ibxqy89-0eOJbop-RxbzNWajDBItB7tlwmQ7a8hrpZ9B-IPuQm8iwB2l9rMZsSUQWEsbsFvlq9Vyq_Oc7Om87jy_lGzZ3fQ_ycwFGfLxIq4C4',
+          'https://img.fotocommunity.com/bulb-of-knowledge-560651dc-d49b-47bb-b90f-6340596d6572.jpg?height=1080',
     ),
     LocalData(
       name: 'sara',
