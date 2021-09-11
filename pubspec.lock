@@ -259,6 +259,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  stack_percentage:
+    dependency: "direct main"
+    description:
+      name: stack_percentage
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
   stack_trace:
     dependency: transitive
     description:
