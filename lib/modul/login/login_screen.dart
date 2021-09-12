@@ -5,6 +5,7 @@ import 'package:facebook/modul/login/login_cubit/login_states.dart';
 import 'package:facebook/modul/register/register_screen.dart';
 import 'package:facebook/shared/components/component.dart';
 import 'package:facebook/shared/style/color.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +18,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginStates>(
       listener: (context, state) {
-        if(state is LoginSuccessState){
+        if (state is LoginSuccessState) {
           navigateAndFinish(context: context, widget: HomeScreen());
         }
       },
@@ -38,145 +39,151 @@ class LoginScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                     width: double.infinity,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  Column(
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text('...المزيد'),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Text('English'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: Text('...المزيد'),
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Text('English'),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Text('Francais'),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        width: 8,
+                        height: 20,
                       ),
-                      InkWell(
-                        onTap: () {},
-                        child: Text('Francais'),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 20,
-                      horizontal: 30,
-                    ),
-                    child: Column(
-                      children: [
-                        DefaultTextFormField(
-                          hint: 'رقم الهاتف أو البريد الأكترونى',
-                          controller: emailController,
-                          textInputType: TextInputType.emailAddress,
-                          validator: (value) {
-                            if (value!.isEmpty)
-                              return 'يرجى أدخال البريد الأكترونى';
-                          },
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 20,
+                          horizontal: 30,
                         ),
-                        DefaultTextFormField(
-                          hint: 'كلمة السر',
-                          controller: passwordController,
-                          textInputType: TextInputType.visiblePassword,
-                          prefixIcon: IconButton(
-                            onPressed: () {
-                              loginCubit.toggleObscure();
-                            },
-                            icon: Icon(
-                              Icons.remove_red_eye,
-                            ),
-                          ),
-                          isHide: loginCubit.isHide,
-                        ),
-                        ConditionalBuilder(
-                          condition: state is! LoginLoadingState,
-                          builder: (context) => Container(
-                            padding: EdgeInsetsDirectional.only(top: 12.0),
-                            width: double.infinity,
-                            child: MaterialButton(
-                              onPressed: () {
-                                loginCubit.loginWithEmail(
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                );
-                              },
-                              child: Text(
-                                'تسجيل الدخول',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              color: primaryColor,
-                            ),
-                          ),
-                          fallback: (context) => Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: CircularProgressIndicator(),
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'هل نسيت كلمة السر؟',
-                            style: TextStyle(
-                              color: primaryColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 60.0,
-                        ),
-                        Row(
+                        child: Column(
                           children: [
-                            Expanded(
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey,
+                            DefaultTextFormField(
+                              hint: 'رقم الهاتف أو البريد الأكترونى',
+                              controller: emailController,
+                              textInputType: TextInputType.emailAddress,
+                              validator: (value) {
+                                if (value!.isEmpty)
+                                  return 'يرجى أدخال البريد الأكترونى';
+                              },
+                            ),
+                            DefaultTextFormField(
+                              hint: 'كلمة السر',
+                              controller: passwordController,
+                              textInputType: TextInputType.visiblePassword,
+                              prefixIcon: IconButton(
+                                onPressed: () {
+                                  loginCubit.toggleObscure();
+                                },
+                                icon: Icon(
+                                  Icons.remove_red_eye,
+                                ),
+                              ),
+                              isHide: loginCubit.isHide,
+                            ),
+                            ConditionalBuilder(
+                              condition: state is! LoginLoadingState,
+                              builder: (context) => Container(
+                                padding: EdgeInsetsDirectional.only(top: 12.0),
+                                width: double.infinity,
+                                child: MaterialButton(
+                                  onPressed: () {
+                                    loginCubit.loginWithEmail(
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                    );
+                                  },
+                                  child: Text(
+                                    'تسجيل الدخول',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  color: primaryColor,
+                                ),
+                              ),
+                              fallback: (context) => Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircularProgressIndicator(),
                               ),
                             ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                            TextButton(
+                              onPressed: () {},
                               child: Text(
-                                'أو',
+                                'هل نسيت كلمة السر؟',
                                 style: TextStyle(
-                                  color: Colors.grey,
+                                  color: primaryColor,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-                            Expanded(
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey,
+                            SizedBox(
+                              height: 60.0,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    height: 1,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Text(
+                                    'أو',
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    height: 1,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 60.0,
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 60.0),
+                              width: double.infinity,
+                              child: MaterialButton(
+                                onPressed: () {
+                                  navigateTo(
+                                      context: context,
+                                      widget: RegisterScreen());
+                                },
+                                child: Text(
+                                  'أنشاء حساب جديد على فيسبوك',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                color: color2,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 60.0,
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 60.0),
-                          width: double.infinity,
-                          child: MaterialButton(
-                            onPressed: () {
-                              navigateTo(context: context , widget: RegisterScreen());
-                            },
-                            child: Text(
-                              'أنشاء حساب جديد على فيسبوك',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            color: color2,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -187,3 +194,5 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
+
