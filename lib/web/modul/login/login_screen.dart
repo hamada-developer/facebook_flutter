@@ -22,308 +22,323 @@ class _LoginScreenWebState extends State<LoginScreenWeb> {
   final TextEditingController passwordController = TextEditingController();
   final ScrollController scrollController = ScrollController();
 
-
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
-      if (scrollController.hasClients)
-        scrollController.jumpTo(50.0);
+      if (scrollController.hasClients) scrollController.jumpTo(50.0);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    var mediaQuery = MediaQuery.of(context);
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.minWidth >= 900) {
-          return Scaffold(
-            backgroundColor: Colors.grey[200],
-            body: Padding(
-              padding: EdgeInsetsDirectional.only(
-                start: Percent.widgetHorizontalPosition(widthChild: constraints.minWidth,ratio: 10, widthParent: constraints.minWidth).abs().round() -320,
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    height: double.infinity,
+    return BlocConsumer<LoginCubit , LoginStates>(
+      listener: (context , state){
+        if(state is LoginSuccessState)
+          navigateAndFinish(context: context, widget: HomeScreen());
+      },
+      builder: (context , states){
+        var loginCubit = LoginCubit.get(context);
+        return LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            if (constraints.minWidth >= 900)
+              return  Scaffold(
+                backgroundColor: Colors.grey[200],
+                body: Padding(
+                  padding: EdgeInsetsDirectional.only(
+                    start: Percent.widgetHorizontalPosition(
+                        widthChild: constraints.minWidth,
+                        ratio: 10,
+                        widthParent: constraints.minWidth)
+                        .abs()
+                        .round() -
+                        320,
                   ),
-                  Card(
-                    elevation: 10,
-                    child: Container(
-                      width: 400,
-                      height: 360,
-                      padding: EdgeInsetsDirectional.all(20),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.white,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        height: double.infinity,
                       ),
-                      clipBehavior: Clip.antiAlias,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Column(
-                          children: [
-                            DefaultTextFormFieldWeb(
-                              hint: 'البريد الأكترونى أو الهاتف',
-                              controller: emailController,
-                              textInputType: TextInputType.emailAddress,
-                            ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            DefaultTextFormFieldWeb(
-                              hint: 'كلمة السر',
-                              controller: passwordController,
-                              textInputType: TextInputType.visiblePassword,
-                            ),
-                            SizedBox(
-                              height: 15.0,
-                            ),
-                            DefaultButtonWeb(
-                              onPressed: () {},
-                              text: 'تسجيل الدخول',
-                              height: 45,
-                            ),
-                            SizedBox(
-                              height: 15.0,
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'هل نسيت كلمة السر؟',
-                                style: TextStyle(
-                                  color: primaryColor,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15.0,
-                            ),
-                            Row(
+                      Card(
+                        elevation: 10,
+                        child: Container(
+                          width: 400,
+                          height: 360,
+                          padding: EdgeInsetsDirectional.all(20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.white,
+                          ),
+                          clipBehavior: Clip.antiAlias,
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Column(
                               children: [
-                                Expanded(
-                                  child: Container(
-                                    height: 1,
-                                    color: Colors.grey[300],
+                                DefaultTextFormFieldWeb(
+                                  hint: 'البريد الأكترونى أو الهاتف',
+                                  controller: emailController,
+                                  textInputType: TextInputType.emailAddress,
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                DefaultTextFormFieldWeb(
+                                  hint: 'كلمة السر',
+                                  controller: passwordController,
+                                  textInputType: TextInputType.visiblePassword,
+                                ),
+                                SizedBox(
+                                  height: 15.0,
+                                ),
+                                DefaultButtonWeb(
+                                  onPressed: () {
+                                    loginCubit.loginWithEmail(
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                    );
+                                  },
+                                  text: 'تسجيل الدخول',
+                                  height: 45,
+                                ),
+                                SizedBox(
+                                  height: 15.0,
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'هل نسيت كلمة السر؟',
+                                    style: TextStyle(
+                                      color: primaryColor,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 15.0,
+                                ),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        height: 1,
+                                        color: Colors.grey[300],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 25.0,
+                                ),
+                                DefaultButtonWeb(
+                                  onPressed: () {},
+                                  text: 'إنشاء حساب جديد',
+                                  height: 45,
+                                  width: 140,
+                                  color: color2,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: 30,
+                                ),
+                                Text(
+                                  'facebook',
+                                  style: TextStyle(
+                                    color: primaryColor,
+                                    fontSize: 58,
+                                    letterSpacing: -0.8,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Text(
+                                  'يمنحك فيسبوك إمكانية التواصل مع الأشخاص \nومشاركة ماتريد معهم',
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w300,
                                   ),
                                 ),
                               ],
                             ),
-                            SizedBox(
-                              height: 25.0,
-                            ),
-                            DefaultButtonWeb(
-                              onPressed: () {},
-                              text: 'إنشاء حساب جديد',
-                              height: 45,
-                              width: 140,
-                              color: color2,
-                            ),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                  Expanded(
-                    child: Container(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: double.infinity,
-                              height: 30,
-                            ),
-                            Text(
-                              'facebook',
-                              style: TextStyle(
-                                color: primaryColor,
-                                fontSize: 58,
-                                letterSpacing: -0.8,
-                                fontWeight: FontWeight.w900,
+                ),
+              );
+            else
+              return Scaffold(
+                backgroundColor: Colors.grey[200],
+                body: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: double.infinity,
+                        height: 30,
+                      ),
+                      Text(
+                        'facebook',
+                        style: TextStyle(
+                          color: primaryColor,
+                          fontSize: 58,
+                          letterSpacing: -0.8,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'يمنحك فيسبوك إمكانية التواصل مع الأشخاص \nومشاركة ماتريد معهم',
+                        textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Card(
+                        elevation: 10,
+                        child: Container(
+                          width: 400,
+                          height: 360,
+                          padding: EdgeInsetsDirectional.all(20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.white,
+                          ),
+                          clipBehavior: Clip.antiAlias,
+                          child: Column(
+                            children: [
+                              DefaultTextFormFieldWeb(
+                                hint: 'البريد الأكترونى أو الهاتف',
+                                controller: emailController,
+                                textInputType: TextInputType.emailAddress,
                               ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              DefaultTextFormFieldWeb(
+                                hint: 'كلمة السر',
+                                controller: passwordController,
+                                textInputType: TextInputType.visiblePassword,
+                              ),
+                              SizedBox(
+                                height: 15.0,
+                              ),
+                              DefaultButtonWeb(
+                                onPressed: () {},
+                                text: 'تسجيل الدخول',
+                                height: 45,
+                              ),
+                              SizedBox(
+                                height: 15.0,
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  'هل نسيت كلمة السر؟',
+                                  style: TextStyle(
+                                    color: primaryColor,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 15.0,
+                              ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      height: 1,
+                                      color: Colors.grey[300],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 25.0,
+                              ),
+                              DefaultButtonWeb(
+                                onPressed: () {},
+                                text: 'إنشاء حساب جديد',
+                                height: 45,
+                                width: 140,
+                                color: color2,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'لفرق موسيقية أو مشاهير أو أنشطة تجارية',
+                            textDirection: TextDirection.rtl,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
                             ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              'يمنحك فيسبوك إمكانية التواصل مع الأشخاص \nومشاركة ماتريد معهم',
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'إنشاء صفحة',
                               textDirection: TextDirection.rtl,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w300,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w800,
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ),
+                      SizedBox(
+                        height: 105,
+                      ),
+                      Container(
+                        width: double.infinity,
+                        height: 250,
+                        padding: EdgeInsetsDirectional.all(20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white,
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-          );
-        }
-        else{
-         return Scaffold(
-           backgroundColor: Colors.grey[200],
-           body: SingleChildScrollView(
-             child: Column(
-               children: [
-                 SizedBox(
-                   width: double.infinity,
-                   height: 30,
-                 ),
-                 Text(
-                   'facebook',
-                   style: TextStyle(
-                     color: primaryColor,
-                     fontSize: 58,
-                     letterSpacing: -0.8,
-                     fontWeight: FontWeight.w900,
-                   ),
-                 ),
-                 SizedBox(
-                   height: 15,
-                 ),
-                 Text(
-                   'يمنحك فيسبوك إمكانية التواصل مع الأشخاص \nومشاركة ماتريد معهم',
-                   textDirection: TextDirection.rtl,
-                   textAlign: TextAlign.center,
-                   style: TextStyle(
-                     color: Colors.black,
-                     fontSize: 22,
-                     fontWeight: FontWeight.w300,
-                   ),
-                 ),
-                 SizedBox(
-                   height: 35,
-                 ),
-                 Card(
-                   elevation: 10,
-                   child: Container(
-                     width: 400,
-                     height: 360,
-                     padding: EdgeInsetsDirectional.all(20),
-                     decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(10.0),
-                       color: Colors.white,
-                     ),
-                     clipBehavior: Clip.antiAlias,
-                     child: Column(
-                       children: [
-                         DefaultTextFormFieldWeb(
-                           hint: 'البريد الأكترونى أو الهاتف',
-                           controller: emailController,
-                           textInputType: TextInputType.emailAddress,
-                         ),
-                         SizedBox(
-                           height: 10.0,
-                         ),
-                         DefaultTextFormFieldWeb(
-                           hint: 'كلمة السر',
-                           controller: passwordController,
-                           textInputType: TextInputType.visiblePassword,
-                         ),
-                         SizedBox(
-                           height: 15.0,
-                         ),
-                         DefaultButtonWeb(
-                           onPressed: () {},
-                           text: 'تسجيل الدخول',
-                           height: 45,
-                         ),
-                         SizedBox(
-                           height: 15.0,
-                         ),
-                         TextButton(
-                           onPressed: () {},
-                           child: Text(
-                             'هل نسيت كلمة السر؟',
-                             style: TextStyle(
-                               color: primaryColor,
-                             ),
-                           ),
-                         ),
-                         SizedBox(
-                           height: 15.0,
-                         ),
-                         Row(
-                           children: [
-                             Expanded(
-                               child: Container(
-                                 height: 1,
-                                 color: Colors.grey[300],
-                               ),
-                             ),
-                           ],
-                         ),
-                         SizedBox(
-                           height: 25.0,
-                         ),
-                         DefaultButtonWeb(
-                           onPressed: () {},
-                           text: 'إنشاء حساب جديد',
-                           height: 45,
-                           width: 140,
-                           color: color2,
-                         ),
-                       ],
-                     ),
-                   ),
-                 ),
-                 SizedBox(
-                   height: 15,
-                 ),
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   children: [
-                     Text(
-                       'لفرق موسيقية أو مشاهير أو أنشطة تجارية',
-                       textDirection: TextDirection.rtl,
-                       textAlign: TextAlign.center,
-                       style: TextStyle(
-                         color: Colors.black,
-                         fontSize: 12,
-                       ),
-                     ),
-                     TextButton(
-                       onPressed: () {},
-                       child: Text(
-                         'إنشاء صفحة',
-                         textDirection: TextDirection.rtl,
-                         textAlign: TextAlign.center,
-                         style: TextStyle(
-                           color: Colors.black,
-                           fontSize: 14,
-                           fontWeight: FontWeight.w800,
-                         ),
-                       ),
-                     ),
-                   ],
-                 ),
-                 SizedBox(
-                   height: 105,
-                 ),
-                 Container(
-                   width: double.infinity,
-                   height: 250,
-                   padding: EdgeInsetsDirectional.all(20),
-                   decoration: BoxDecoration(
-                     borderRadius: BorderRadius.circular(10.0),
-                     color: Colors.white,
-                   ),
-                   clipBehavior: Clip.antiAlias,
-                 ),
-               ],
-             ),
-           ),
-         );
-        }
+                ),
+              );
+          },
+        );
       },
     );
   }
@@ -336,166 +351,3 @@ class _LoginScreenWebState extends State<LoginScreenWeb> {
     scrollController.dispose();
   }
 }
-//
-// void column() {
-//   Scaffold(
-//     backgroundColor: Colors.grey[200],
-//     body: Scrollbar(
-//       showTrackOnHover: false,
-//       isAlwaysShown: true,
-//       thickness: 15,
-//       radius: Radius.zero,
-//       child: SingleChildScrollView(
-//         child: Column(
-//           children: [
-//             SizedBox(
-//               width: double.infinity,
-//               height: 30,
-//             ),
-//             Text(
-//               'facebook',
-//               style: TextStyle(
-//                 color: primaryColor,
-//                 fontSize: 58,
-//                 letterSpacing: -0.8,
-//                 fontWeight: FontWeight.w900,
-//               ),
-//             ),
-//             SizedBox(
-//               height: 15,
-//             ),
-//             Text(
-//               'يمنحك فيسبوك إمكانية التواصل مع الأشخاص \nومشاركة ماتريد معهم',
-//               textDirection: TextDirection.rtl,
-//               textAlign: TextAlign.center,
-//               style: TextStyle(
-//                 color: Colors.black,
-//                 fontSize: 22,
-//                 fontWeight: FontWeight.w300,
-//               ),
-//             ),
-//             SizedBox(
-//               height: 35,
-//             ),
-//             Card(
-//               elevation: 10,
-//               child: Container(
-//                 width: 400,
-//                 height: 360,
-//                 padding: EdgeInsetsDirectional.all(20),
-//                 decoration: BoxDecoration(
-//                   borderRadius: BorderRadius.circular(10.0),
-//                   color: Colors.white,
-//                 ),
-//                 clipBehavior: Clip.antiAlias,
-//                 child: Column(
-//                   children: [
-//                     DefaultTextFormFieldWeb(
-//                       hint: 'البريد الأكترونى أو الهاتف',
-//                       controller: emailController,
-//                       textInputType: TextInputType.emailAddress,
-//                     ),
-//                     SizedBox(
-//                       height: 10.0,
-//                     ),
-//                     DefaultTextFormFieldWeb(
-//                       hint: 'كلمة السر',
-//                       controller: passwordController,
-//                       textInputType: TextInputType.visiblePassword,
-//                     ),
-//                     SizedBox(
-//                       height: 15.0,
-//                     ),
-//                     DefaultButtonWeb(
-//                       onPressed: () {},
-//                       text: 'تسجيل الدخول',
-//                       height: 45,
-//                     ),
-//                     SizedBox(
-//                       height: 15.0,
-//                     ),
-//                     TextButton(
-//                       onPressed: () {},
-//                       child: Text(
-//                         'هل نسيت كلمة السر؟',
-//                         style: TextStyle(
-//                           color: primaryColor,
-//                         ),
-//                       ),
-//                     ),
-//                     SizedBox(
-//                       height: 15.0,
-//                     ),
-//                     Row(
-//                       children: [
-//                         Expanded(
-//                           child: Container(
-//                             height: 1,
-//                             color: Colors.grey[300],
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                     SizedBox(
-//                       height: 25.0,
-//                     ),
-//                     DefaultButtonWeb(
-//                       onPressed: () {},
-//                       text: 'إنشاء حساب جديد',
-//                       height: 45,
-//                       width: 140,
-//                       color: color2,
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//             SizedBox(
-//               height: 15,
-//             ),
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 Text(
-//                   'لفرق موسيقية أو مشاهير أو أنشطة تجارية',
-//                   textDirection: TextDirection.rtl,
-//                   textAlign: TextAlign.center,
-//                   style: TextStyle(
-//                     color: Colors.black,
-//                     fontSize: 12,
-//                   ),
-//                 ),
-//                 TextButton(
-//                   onPressed: () {},
-//                   child: Text(
-//                     'إنشاء صفحة',
-//                     textDirection: TextDirection.rtl,
-//                     textAlign: TextAlign.center,
-//                     style: TextStyle(
-//                       color: Colors.black,
-//                       fontSize: 14,
-//                       fontWeight: FontWeight.w800,
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//             SizedBox(
-//               height: 105,
-//             ),
-//             Container(
-//               width: double.infinity,
-//               height: 250,
-//               padding: EdgeInsetsDirectional.all(20),
-//               decoration: BoxDecoration(
-//                 borderRadius: BorderRadius.circular(10.0),
-//                 color: Colors.white,
-//               ),
-//               clipBehavior: Clip.antiAlias,
-//             ),
-//           ],
-//         ),
-//       ),
-//     ),
-//   );
-// }
