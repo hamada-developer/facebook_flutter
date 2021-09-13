@@ -4,6 +4,7 @@ class LocalData {
   final String message;
   final String? story;
   final String? post;
+  final String? post_image;
 
   LocalData({
     required this.name,
@@ -11,5 +12,6 @@ class LocalData {
     required this.message,
     this.story,
     this.post,
+    this.post_image,
   });
 }
