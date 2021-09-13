@@ -5,6 +5,7 @@ import 'package:facebook/modul/login/login_cubit/login_states.dart';
 import 'package:facebook/modul/register/register_screen.dart';
 import 'package:facebook/shared/components/component.dart';
 import 'package:facebook/shared/style/color.dart';
+import 'package:facebook/web/layout/app_layout.dart';
 import 'package:facebook/web/widgets/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,26 +33,25 @@ class _LoginScreenWebState extends State<LoginScreenWeb> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit , LoginStates>(
-      listener: (context , state){
-        if(state is LoginSuccessState)
-          navigateAndFinish(context: context, widget: HomeScreen());
+    return BlocConsumer<LoginCubit, LoginStates>(
+      listener: (context, state) {
+        if (state is LoginSuccessState)
+          navigateAndFinish(context: context, widget: AppLayout());
       },
-      builder: (context , states){
+      builder: (context, states) {
         var loginCubit = LoginCubit.get(context);
         return LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
             if (constraints.minWidth >= 900)
-              return  Scaffold(
+              return Scaffold(
                 backgroundColor: Colors.grey[200],
                 body: Padding(
                   padding: EdgeInsetsDirectional.only(
                     start: Percent.widgetHorizontalPosition(
-                        widthChild: constraints.minWidth,
-                        ratio: 10,
-                        widthParent: constraints.minWidth)
-                        .abs()
-                        .round() -
+                          widthChild: constraints.minWidth,
+                          ratio: 10,
+                          widthParent: constraints.minWidth,
+                        ).abs().round() -
                         320,
                   ),
                   child: Row(
@@ -247,7 +247,12 @@ class _LoginScreenWebState extends State<LoginScreenWeb> {
                                 height: 15.0,
                               ),
                               DefaultButtonWeb(
-                                onPressed: () {},
+                                onPressed: () {
+                                  loginCubit.loginWithEmail(
+                                    email: emailController.text,
+                                    password: passwordController.text,
+                                  );
+                                },
                                 text: 'تسجيل الدخول',
                                 height: 45,
                               ),
