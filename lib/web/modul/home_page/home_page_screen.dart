@@ -78,170 +78,172 @@ class HomePageScreenWeb extends StatelessWidget {
                     width: 300,
                     padding: EdgeInsets.all(20),
                     height: double.infinity,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.more_horiz_rounded,
-                                  color: Colors.black54,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.more_horiz_rounded,
+                                    color: Colors.black54,
+                                  ),
                                 ),
                               ),
+                              Expanded(
+                                flex: 1,
+                                child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.search,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.video_call,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Text(
+                                  'جهات الاتصال',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black54,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  persons[0].name,
+                                ),
+                                SizedBox(
+                                    width: 10,
+                                ),
+                                CircleAvatar(
+                                  radius: 20,
+                                  backgroundImage: NetworkImage(
+                                    '${persons[0].url}',
+                                  ),
+                                ),
+                              ],
                             ),
-                            Expanded(
-                              flex: 1,
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.search,
-                                  color: Colors.black54,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  persons[1].name,
                                 ),
-                              ),
+                                SizedBox(
+                                    width: 10,
+                                ),
+                                CircleAvatar(
+                                  radius: 20,
+                                  backgroundImage: NetworkImage(
+                                    '${persons[1].url}',
+                                  ),
+                                ),
+                              ],
                             ),
-                            Expanded(
-                              flex: 1,
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.video_call,
-                                  color: Colors.black54,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  persons[2].name,
                                 ),
-                              ),
+                                SizedBox(
+                                    width: 10,
+                                ),
+                                CircleAvatar(
+                                  radius: 20,
+                                  backgroundImage: NetworkImage(
+                                    '${persons[2].url}',
+                                  ),
+                                ),
+                              ],
                             ),
-                            Expanded(
-                              flex: 3,
-                              child: Text(
-                                'جهات الاتصال',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black54,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  persons[3].name,
                                 ),
-                                textAlign: TextAlign.center,
-                              ),
+                                SizedBox(
+                                    width: 10,
+                                ),
+                                CircleAvatar(
+                                  radius: 20,
+                                  backgroundImage: NetworkImage(
+                                    '${persons[3].url}',
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                persons[0].name,
-                              ),
-                              SizedBox(
-                                  width: 10,
-                              ),
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundImage: NetworkImage(
-                                  '${persons[0].url}',
-                                ),
-                              ),
-                            ],
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                persons[1].name,
-                              ),
-                              SizedBox(
-                                  width: 10,
-                              ),
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundImage: NetworkImage(
-                                  '${persons[1].url}',
-                                ),
-                              ),
-                            ],
+                          SizedBox(
+                            height: 20,
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                persons[2].name,
-                              ),
-                              SizedBox(
-                                  width: 10,
-                              ),
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundImage: NetworkImage(
-                                  '${persons[2].url}',
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  persons[4].name,
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                persons[3].name,
-                              ),
-                              SizedBox(
-                                  width: 10,
-                              ),
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundImage: NetworkImage(
-                                  '${persons[3].url}',
+                                SizedBox(
+                                    width: 10,
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                persons[4].name,
-                              ),
-                              SizedBox(
-                                  width: 10,
-                              ),
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundImage: NetworkImage(
-                                  '${persons[4].url}',
+                                CircleAvatar(
+                                  radius: 20,
+                                  backgroundImage: NetworkImage(
+                                    '${persons[4].url}',
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 // ** الصفحة الرئيسية
@@ -1343,191 +1345,193 @@ class HomePageScreenWeb extends StatelessWidget {
                     width: 300,
                     padding: EdgeInsets.all(20),
                     height: double.infinity,
-                    child: Column(
-                      children: [
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                persons[0].name,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              CircleAvatar(
-                                radius: 20,
-                                backgroundImage: NetworkImage(
-                                  '${persons[0].url}',
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  persons[0].name,
                                 ),
-                              ),
-                            ],
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                CircleAvatar(
+                                  radius: 20,
+                                  backgroundImage: NetworkImage(
+                                    '${persons[0].url}',
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'الأصدقاء',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black54,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image(
-                                image: AssetImage(
-                                  'assets/images/friends.png',
-                                ),
-                              ),
-                            ],
+                          SizedBox(
+                            height: 20,
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'الذكريات',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black54,
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  'الأصدقاء',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image(
-                                image: AssetImage(
-                                  'assets/images/clock.png',
+                                SizedBox(
+                                  width: 10,
                                 ),
-                              ),
-                            ],
+                                Image(
+                                  image: AssetImage(
+                                    'assets/images/friends.png',
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'Watch',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black54,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image(
-                                image: AssetImage(
-                                  'assets/images/television.png',
-                                ),
-                              ),
-                            ],
+                          SizedBox(
+                            height: 20,
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'العناصر المحفوظة',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black54,
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  'الذكريات',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image(
-                                image: AssetImage(
-                                  'assets/images/bookmark.png',
+                                SizedBox(
+                                  width: 10,
                                 ),
-                              ),
-                            ],
+                                Image(
+                                  image: AssetImage(
+                                    'assets/images/clock.png',
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'المفضلة',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black54,
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image(
-                                image: AssetImage(
-                                  'assets/images/favourite.png',
-                                ),
-                              ),
-                            ],
+                          SizedBox(
+                            height: 20,
                           ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'الصفحات',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black54,
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  'Watch',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Image(
-                                image: AssetImage(
-                                  'assets/images/flag.png',
+                                SizedBox(
+                                  width: 10,
                                 ),
-                              ),
-                            ],
+                                Image(
+                                  image: AssetImage(
+                                    'assets/images/television.png',
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: 20,
+                          ),
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  'العناصر المحفوظة',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Image(
+                                  image: AssetImage(
+                                    'assets/images/bookmark.png',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  'المفضلة',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Image(
+                                  image: AssetImage(
+                                    'assets/images/favourite.png',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          MaterialButton(
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  'الصفحات',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Image(
+                                  image: AssetImage(
+                                    'assets/images/flag.png',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
               ],
