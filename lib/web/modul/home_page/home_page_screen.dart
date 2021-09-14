@@ -1339,9 +1339,196 @@ class HomePageScreenWeb extends StatelessWidget {
                 // ** القائمة الاعدادات
                 if (constraints.minWidth >= 1100)
                   Container(
-                    color: Colors.deepPurple,
+                    color: Colors.grey[300],
                     width: 300,
+                    padding: EdgeInsets.all(20),
                     height: double.infinity,
+                    child: Column(
+                      children: [
+                        MaterialButton(
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                persons[0].name,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              CircleAvatar(
+                                radius: 20,
+                                backgroundImage: NetworkImage(
+                                  '${persons[0].url}',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        MaterialButton(
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'الأصدقاء',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Image(
+                                image: AssetImage(
+                                  'assets/images/friends.png',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        MaterialButton(
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'الذكريات',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Image(
+                                image: AssetImage(
+                                  'assets/images/clock.png',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        MaterialButton(
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Watch',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Image(
+                                image: AssetImage(
+                                  'assets/images/television.png',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        MaterialButton(
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'العناصر المحفوظة',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Image(
+                                image: AssetImage(
+                                  'assets/images/bookmark.png',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        MaterialButton(
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'المفضلة',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Image(
+                                image: AssetImage(
+                                  'assets/images/favourite.png',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        MaterialButton(
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'الصفحات',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Image(
+                                image: AssetImage(
+                                  'assets/images/flag.png',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
               ],
             ),
