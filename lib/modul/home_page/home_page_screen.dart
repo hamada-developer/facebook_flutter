@@ -22,7 +22,7 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
 
-  final TextEditingController controller = TextEditingController();
+
   final ItemScrollController itemScrollController = ItemScrollController();
 
   Future moveToIndex(int index)async{
@@ -4355,6 +4355,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
     ),
   ];
 
+
+
+
   final List<LocalData> persons = [
     LocalData(
       name: 'sara',
@@ -4481,7 +4484,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
           'https://img5.goodfon.com/wallpaper/nbig/2/ac/abstract-background-colorful-rounded-shapes-abstraktsiia-fon.jpg',
     ),
   ];
-
 
 
   @override
@@ -5131,7 +5133,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 SizedBox(
                   height: 15,
                 ),
-                //علامة
                 Container(
                   color: Colors.white,
                   child: Wrap(
@@ -11310,10 +11311,241 @@ Widget itemPost() => Container(
               ],
             ),
           ),
-          Image(
-            image: NetworkImage(
-              'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
-            ),
+          OpenContainer(
+            transitionType: ContainerTransitionType.fadeThrough,
+            transitionDuration: Duration(seconds: 1),
+            openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+              return Container(
+                color: Colors.black,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment:CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Image(
+                            image: NetworkImage(
+                              'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
+                            ),
+
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Column(
+                        crossAxisAlignment:CrossAxisAlignment.end,
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            'الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد\n بطل دورى السوبر المصري لكرة السلة \n',
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            ' أمس الساعة11:30 م',
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                '${arabicNumber.convert(4777)} مشاركة ',
+                                textDirection: TextDirection.rtl,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                '${arabicNumber.convert(4777)} تعليقا ',
+                                textDirection: TextDirection.rtl,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Spacer(),
+                              Container(
+                                width: 85,
+                                child: Stack(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          '${arabicNumber.convert(43576)}',
+                                          textDirection: TextDirection.rtl,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    PositionedDirectional(
+                                      end: 0,
+                                      child: Container(
+                                        height: 20,
+                                        width: 20,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color: Colors.white, width: 1.5),
+                                            borderRadius: BorderRadius.circular(18)),
+                                        child: SvgPicture.asset(
+                                          'assets/icons/facebook_love.svg',
+                                        ),
+                                      ),
+                                    ),
+                                    PositionedDirectional(
+                                      end: 16,
+                                      child: Container(
+                                        height: 20,
+                                        width: 20,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color: Colors.white, width: 1.5),
+                                            borderRadius: BorderRadius.circular(18)),
+                                        child: SvgPicture.asset(
+                                          'assets/icons/care.svg',
+                                        ),
+                                      ),
+                                    ),
+                                    PositionedDirectional(
+                                      end: 32,
+                                      child: Container(
+                                        height: 20,
+                                        width: 20,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color: Colors.white, width: 1.5),
+                                            borderRadius: BorderRadius.circular(18)),
+                                        child: SvgPicture.asset(
+                                          'assets/icons/facebook_like.svg',
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            width: double.infinity,
+                            height: 1,
+                            color: Colors.grey,
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'مشاركة',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      Icon(
+                                        CustomIcons
+                                            .arrow_curved_to_the_left_svgrepo_com,
+                                        color: Colors.white,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'تعليق',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      Icon(
+                                        CustomIcons.comment_svgrepo_com,
+                                        color: Colors.white,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'أعجبنى',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Icon(
+                                        CustomIcons.like_svgrepo_com,
+                                        color: Colors.white,
+                                        size: 20,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+            closedBuilder: (BuildContext context, void Function() action) {
+              return Image(
+                image: NetworkImage(
+                  'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
+                ),
+              );
+            },
+
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),
