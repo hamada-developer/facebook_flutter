@@ -15,12 +15,9 @@ import 'package:stack_percentage/stack_percentage.dart';
 import 'package:page_transition/page_transition.dart';
 
 
-class HomePageScreen extends StatefulWidget {
-  @override
-  State<HomePageScreen> createState() => _HomePageScreenState();
-}
 
-class _HomePageScreenState extends State<HomePageScreen> {
+
+class HomePageScreen extends StatelessWidget {
 
 
   final ItemScrollController itemScrollController = ItemScrollController();
@@ -4355,142 +4352,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
     ),
   ];
 
-
-
-
-  final List<LocalData> persons = [
-    LocalData(
-      name: 'sara',
-      url:
-          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60',
-      message: 'hi i am sara fsdfdsfdfjsdkjfsdklfsdkfhsdjkjkfdsdsdsdsdjkg',
-      story:
-          'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
-    ),
-    LocalData(
-      name: 'hdfghdjkghd fdsdsdsdsdsdf ghj',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb8K3r8wnRGKL-taFuE8Pz6nf7XvsD8aOWGA&usqp=CAU',
-      message: 'hi i fsdjgfjdfkghdf',
-      story:
-          'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
-    ),
-    LocalData(
-      name: 'asdasdfasdsdasda',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-      message: 'asdasdasdasdasdasdds',
-      story: 'https://www.ubackground.com/_ph/8/236102508.jpg',
-    ),
-    LocalData(
-      name: 'asdasdfasdsdasda',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRXs4XLutykcrFtsalR7IDFbn2iy53MB6dpg&usqp=CAU',
-      message: 'asdasdasdasdasdasdds',
-      story: 'https://wallpaperaccess.com/full/1968299.jpg',
-    ),
-    LocalData(
-      name: 'sara',
-      url:
-          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60',
-      message: 'hi i am sara fsdjkfdsdsdsdsdjkg',
-      story:
-          'https://elements-cover-images-0.imgix.net/dc32fd46-a38b-4b46-8bcd-c722b6c6fc94?auto=compress%2Cformat&fit=max&w=632&s=3c09a22ce4971143ddd4261636818e11',
-    ),
-    LocalData(
-      name: 'hdfghdjkghd fdsdsdsdsdsdf ghj',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb8K3r8wnRGKL-taFuE8Pz6nf7XvsD8aOWGA&usqp=CAU',
-      message: 'hi i fsdjgfjdfkghdf',
-      story:
-          'https://images.unsplash.com/photo-1560421683-6856ea585c78?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3JlYXRpdml0eXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
-    ),
-    LocalData(
-      name: 'asdasdfasdsdasda',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-      message: 'asdasdasdasdasdasdds',
-      story:
-          'https://s3.amazonaws.com/susam-files/Wallpapers/Trello+Theme+Exclusive+Creative+Brush/creative_brush_wallpaper_v2-2560x1440.png',
-    ),
-    LocalData(
-      name: 'asdasdfasdsdasda',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRXs4XLutykcrFtsalR7IDFbn2iy53MB6dpg&usqp=CAU',
-      message: 'asdasdasdasdasdasdds',
-      story: 'https://wallpaperaccess.com/full/637507.jpg',
-    ),
-    LocalData(
-      name: 'sara',
-      url:
-          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60',
-      message: 'hi i am sara fsdjkfdsdsdsdsdjkg',
-      story:
-          'https://images.unsplash.com/photo-1583223667854-e0e05b1ad4f3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHAlMjBsYXB0b3B8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
-    ),
-    LocalData(
-        name: 'hdfghdjkghd fdsdsdsdsdsdf ghj',
-        url:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb8K3r8wnRGKL-taFuE8Pz6nf7XvsD8aOWGA&usqp=CAU',
-        message: 'hi i fsdjgfjdfkghdf',
-        story:
-            'https://elements-cover-images-0.imgix.net/dc32fd46-a38b-4b46-8bcd-c722b6c6fc94?auto=compress%2Cformat&fit=max&w=632&s=3c09a22ce4971143ddd4261636818e11'),
-    LocalData(
-      name: 'asdasdfasdsdasda',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-      message: 'asdasdasdasdasdasdds',
-      story:
-          'https://img.fotocommunity.com/bulb-of-knowledge-560651dc-d49b-47bb-b90f-6340596d6572.jpg?height=1080',
-    ),
-    LocalData(
-      name: 'asdasdfasdsdasda',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-      message: 'asdasdasdasdasdasdds',
-      story:
-          'https://img.fotocommunity.com/bulb-of-knowledge-560651dc-d49b-47bb-b90f-6340596d6572.jpg?height=1080',
-    ),
-    LocalData(
-      name: 'sara',
-      url:
-          'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60',
-      message: 'hi i am sara fsdjkfdsdsdsdsdjkg',
-      story:
-          'https://www.allwhitebackground.com/wp-content/uploads/5/Creative-Background-HD-Photos.jpg',
-    ),
-    LocalData(
-      name: 'hdfghdjkghd fdsdsdsdsdsdf ghj',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb8K3r8wnRGKL-taFuE8Pz6nf7XvsD8aOWGA&usqp=CAU',
-      message: 'hi i fsdjgfjdfkghdf',
-      story:
-          'https://i.pinimg.com/736x/76/c5/5f/76c55f279c052c5eeaccf8162e3fb629.jpg',
-    ),
-    LocalData(
-      name: 'asdasdfasdsdasda',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-      message: 'asdasdasdasdasdasdds',
-      story:
-          'https://c4.wallpaperflare.com/wallpaper/465/78/448/humor-motivational-black-background-minimalism-wallpaper-preview.jpg',
-    ),
-    LocalData(
-      name: 'asdasdfasdsdasda',
-      url:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRXs4XLutykcrFtsalR7IDFbn2iy53MB6dpg&usqp=CAU',
-      message: 'asdasdasdasdasdasdds',
-      story:
-          'https://img5.goodfon.com/wallpaper/nbig/2/ac/abstract-background-colorful-rounded-shapes-abstraktsiia-fon.jpg',
-    ),
-  ];
-
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeStates>(
       listener: (context, state) {},
       builder: (context, state) {
+        List<LocalData> users = HomeCubit.get(context).persons;
         return Container(
           color: Colors.grey[400],
           child: SingleChildScrollView(
@@ -4552,7 +4419,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               radius: 19,
                               backgroundColor: Colors.blue,
                               backgroundImage: NetworkImage(
-                                'https://serving.photos.photobox.com/25235201d5280a9882ac9a90e30d287c527be9a7e648e6b3207215203329d3271a4fb63b.jpg',
+                                '${users[0].url}',
                               ),
                             ),
                           ],
@@ -4653,7 +4520,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           shrinkWrap: true,
                           reverse: true,
                           scrollDirection: Axis.horizontal,
-                          itemCount: persons.length,
+                          itemCount: users.length,
                           itemBuilder: (context, index) => Container(
                             width: 115,
                             height: double.infinity,
@@ -4674,7 +4541,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                           decoration: BoxDecoration(
                                               image: DecorationImage(
                                             image: NetworkImage(
-                                                '${persons[index].story}'),
+                                                '${users[index].story}'),
                                             fit: BoxFit.cover,
                                           )),
                                         ),
@@ -4698,7 +4565,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                         ),
                                         image: DecorationImage(
                                             image: NetworkImage(
-                                              '${persons[index].url}',
+                                              '${users[index].url}',
                                             ),
                                             fit: BoxFit.cover),
                                       ),
@@ -4708,7 +4575,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                 Padding(
                                   padding: const EdgeInsets.all(15.0),
                                   child: Text(
-                                    '${persons[index].name}',
+                                    '${users[index].name}',
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
@@ -4729,7 +4596,19 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 SizedBox(
                   height: 15,
                 ),
-                itemPost(),
+                Column(
+                  children: [
+                    ListView.separated(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (_, index)=> itemPost(),
+                      separatorBuilder: (_, index)=> SizedBox(
+                        height: 15,
+                      ),
+                      itemCount: 2,
+                    ),
+                  ],
+                ),
                 SizedBox(
                   height: 15,
                 ),
