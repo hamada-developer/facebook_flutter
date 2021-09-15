@@ -4601,7 +4601,9 @@ class HomePageScreen extends StatelessWidget {
                     ListView.separated(
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (_, index)=> itemPost(),
+                      itemBuilder: (_, index) {
+                        return itemPost(users[index]);
+                        },
                       separatorBuilder: (_, index)=> SizedBox(
                         height: 15,
                       ),
@@ -11102,13 +11104,13 @@ void postWidget() {
   );
 }
 
-Widget itemPost() => Container(
+Widget itemPost(LocalData users) => Container(
       color: Colors.white,
       child: Wrap(
         alignment: WrapAlignment.end,
         children: [
           Container(
-            padding: EdgeInsetsDirectional.only(end: 15.0),
+            padding: EdgeInsetsDirectional.only(end: 15.0,top: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -11122,37 +11124,41 @@ Widget itemPost() => Container(
                         color: Colors.grey[700],
                       ),
                     ),
-                    Spacer(),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          'Sara Ahmed',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            '${users.name}',
+                            textAlign: TextAlign.end,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                        Row(
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4.0),
-                              child: Icon(
-                                Icons.public_rounded,
-                                color: Colors.grey[700],
-                                size: 16,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Icon(
+                                  Icons.public_rounded,
+                                  color: Colors.grey[700],
+                                  size: 16,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'أمس الساعة 9:13 م',
-                              style: TextStyle(
-                                fontSize: 12,
+                              Text(
+                                '${users.date}',
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsetsDirectional.only(start: 15),
@@ -11170,7 +11176,7 @@ Widget itemPost() => Container(
                             ),
                             image: DecorationImage(
                                 image: NetworkImage(
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
+                                  '${users.url}',
                                 ),
                                 fit: BoxFit.cover),
                           ),
@@ -11180,7 +11186,7 @@ Widget itemPost() => Container(
                   ],
                 ),
                 Text(
-                  'الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد\n بطل دورى السوبر المصري لكرة السلة \n',
+                  '${users.post??''}',
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
@@ -11206,7 +11212,7 @@ Widget itemPost() => Container(
                         children: [
                           Image(
                             image: NetworkImage(
-                              'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
+                              '${users.post_image}',
                             ),
 
                           ),
@@ -11222,7 +11228,7 @@ Widget itemPost() => Container(
                             height: 20,
                           ),
                           Text(
-                            'الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد\n بطل دورى السوبر المصري لكرة السلة \n',
+                            '${users.post}',
                             textDirection: TextDirection.rtl,
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
@@ -11234,7 +11240,7 @@ Widget itemPost() => Container(
                             height: 20,
                           ),
                           Text(
-                            ' أمس الساعة11:30 م',
+                            '${users.date}',
                             textDirection: TextDirection.rtl,
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
@@ -11248,7 +11254,7 @@ Widget itemPost() => Container(
                           Row(
                             children: [
                               Text(
-                                '${arabicNumber.convert(4777)} مشاركة ',
+                                '${users.share_count}',
                                 textDirection: TextDirection.rtl,
                                 style: TextStyle(
                                   color: Colors.white,
@@ -11258,71 +11264,79 @@ Widget itemPost() => Container(
                                 width: 5,
                               ),
                               Text(
-                                '${arabicNumber.convert(4777)} تعليقا ',
+                                '${users.comment_count}',
                                 textDirection: TextDirection.rtl,
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
                               ),
-                              Spacer(),
-                              Container(
-                                width: 85,
-                                child: Stack(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          '${arabicNumber.convert(43576)}',
-                                          textDirection: TextDirection.rtl,
-                                          style: TextStyle(
-                                            color: Colors.white,
+                              Expanded(
+                                child: Container(
+                                  height: 20,
+                                  child: Wrap(
+                                    direction: Axis.horizontal,
+                                    alignment: WrapAlignment.end,
+                                    crossAxisAlignment: WrapCrossAlignment.center,
+                                    children: [
+                                      Text(
+                                        '${users.like_count}',
+                                        textDirection: TextDirection.rtl,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      Stack(
+                                        children: [
+                                          Container(
+                                            width: 55,
+                                            height: 20,
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    PositionedDirectional(
-                                      end: 0,
-                                      child: Container(
-                                        height: 20,
-                                        width: 20,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: Colors.white, width: 1.5),
-                                            borderRadius: BorderRadius.circular(18)),
-                                        child: SvgPicture.asset(
-                                          'assets/icons/facebook_love.svg',
-                                        ),
+                                          PositionedDirectional(
+                                            end: 0,
+                                            child: Container(
+                                              height: 20,
+                                              width: 20,
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Colors.white, width: 1.5),
+                                                  borderRadius: BorderRadius.circular(18)),
+                                              child: SvgPicture.asset(
+                                                '${users.first_rect}',
+                                              ),
+                                            ),
+                                          ),
+                                          PositionedDirectional(
+                                            end: 16,
+                                            child: Container(
+                                              height: 20,
+                                              width: 20,
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Colors.white, width: 1.5),
+                                                  borderRadius: BorderRadius.circular(18)),
+                                              child: SvgPicture.asset(
+                                                '${users.second_rect}',
+                                              ),
+                                            ),
+                                          ),
+                                          PositionedDirectional(
+                                            end: 32,
+                                            child: Container(
+                                              height: 20,
+                                              width: 20,
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Colors.white, width: 1.5),
+                                                  borderRadius: BorderRadius.circular(18)),
+                                              child: SvgPicture.asset(
+                                                '${users.thirty_rect}',
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ),
-                                    PositionedDirectional(
-                                      end: 16,
-                                      child: Container(
-                                        height: 20,
-                                        width: 20,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: Colors.white, width: 1.5),
-                                            borderRadius: BorderRadius.circular(18)),
-                                        child: SvgPicture.asset(
-                                          'assets/icons/care.svg',
-                                        ),
-                                      ),
-                                    ),
-                                    PositionedDirectional(
-                                      end: 32,
-                                      child: Container(
-                                        height: 20,
-                                        width: 20,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                color: Colors.white, width: 1.5),
-                                            borderRadius: BorderRadius.circular(18)),
-                                        child: SvgPicture.asset(
-                                          'assets/icons/facebook_like.svg',
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -11418,9 +11432,12 @@ Widget itemPost() => Container(
               );
             },
             closedBuilder: (BuildContext context, void Function() action) {
-              return Image(
-                image: NetworkImage(
-                  'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
+              return Padding(
+                padding: const EdgeInsetsDirectional.only(top: 10),
+                child: Image(
+                  image: NetworkImage(
+                    '${users.post_image}',
+                  ),
                 ),
               );
             },
@@ -11436,7 +11453,7 @@ Widget itemPost() => Container(
                   Row(
                     children: [
                       Text(
-                        '${arabicNumber.convert(4777)} مشاركة ',
+                        '${users.share_count}',
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
                           color: Colors.grey,
@@ -11446,71 +11463,80 @@ Widget itemPost() => Container(
                         width: 5,
                       ),
                       Text(
-                        '${arabicNumber.convert(4777)} تعليقا ',
+                        '${users.comment_count}',
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
                           color: Colors.grey,
                         ),
                       ),
-                      Spacer(),
-                      Container(
-                        width: 85,
-                        child: Stack(
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  '${arabicNumber.convert(43576)}',
-                                  textDirection: TextDirection.rtl,
-                                  style: TextStyle(
-                                    color: Colors.grey,
+                      Expanded(
+                        child: Container(
+                          height: 20,
+                          
+                          child: Wrap(
+                          direction: Axis.horizontal,
+                            alignment: WrapAlignment.end,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: [
+                              Text(
+                              '${users.like_count}',
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                              Stack(
+                                children: [
+                                  Container(
+                                    width: 55,
+                                    height: 20,
                                   ),
-                                ),
-                              ],
-                            ),
-                            PositionedDirectional(
-                              end: 0,
-                              child: Container(
-                                height: 20,
-                                width: 20,
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: Colors.white, width: 1.5),
-                                    borderRadius: BorderRadius.circular(18)),
-                                child: SvgPicture.asset(
-                                  'assets/icons/facebook_love.svg',
-                                ),
+                                   PositionedDirectional(
+                                    end: 0,
+                                    child: Container(
+                                      height: 20,
+                                      width: 20,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.white, width: 1.5),
+                                          borderRadius: BorderRadius.circular(18)),
+                                      child: SvgPicture.asset(
+                                        '${users.first_rect}',
+                                      ),
+                                    ),
+                                  ),
+                                  PositionedDirectional(
+                                    end: 16,
+                                    child: Container(
+                                      height: 20,
+                                      width: 20,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.white, width: 1.5),
+                                          borderRadius: BorderRadius.circular(18)),
+                                      child: SvgPicture.asset(
+                                        '${users.second_rect}',
+                                      ),
+                                    ),
+                                  ),
+                                  PositionedDirectional(
+                                    end: 32,
+                                    child: Container(
+                                      height: 20,
+                                      width: 20,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.white, width: 1.5),
+                                          borderRadius: BorderRadius.circular(18)),
+                                      child: SvgPicture.asset(
+                                        '${users.thirty_rect}',
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                            PositionedDirectional(
-                              end: 16,
-                              child: Container(
-                                height: 20,
-                                width: 20,
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: Colors.white, width: 1.5),
-                                    borderRadius: BorderRadius.circular(18)),
-                                child: SvgPicture.asset(
-                                  'assets/icons/care.svg',
-                                ),
-                              ),
-                            ),
-                            PositionedDirectional(
-                              end: 32,
-                              child: Container(
-                                height: 20,
-                                width: 20,
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: Colors.white, width: 1.5),
-                                    borderRadius: BorderRadius.circular(18)),
-                                child: SvgPicture.asset(
-                                  'assets/icons/facebook_like.svg',
-                                ),
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],

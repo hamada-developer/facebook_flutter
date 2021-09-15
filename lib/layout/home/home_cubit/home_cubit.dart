@@ -440,14 +440,32 @@ class HomeCubit extends Cubit<HomeStates>{
       message: 'Hi, i am a software engineer ',
       url: 'https://serving.photos.photobox.com/25235201d5280a9882ac9a90e30d287c527be9a7e648e6b3207215203329d3271a4fb63b.jpg',
       story: 'https://img.fotocommunity.com/bulb-of-knowledge-560651dc-d49b-47bb-b90f-6340596d6572.jpg?height=1080',
+      post: 'الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد\n بطل دورى السوبر المصري لكرة السلة \n',
+      post_image: 'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
+      date: 'أمس الساعة${arabicNumber.convert(11)}:${arabicNumber.convert(30)}م',
+      comment_count: '${arabicNumber.convert(5606)} تعليقا ',
+      like_count: '${arabicNumber.convert(221873)}',
+      share_count: '${arabicNumber.convert(1050)} مشاركة ',
+      first_rect: 'assets/icons/facebook_love.svg',
+      second_rect: 'assets/icons/care.svg',
+      thirty_rect: 'assets/icons/facebook_like.svg',
+
     ),
     LocalData(
-      name: 'sara',
-      url:
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60',
-      message: 'hi i am sara fsdfdsfdfjsdkjfsdklfsdkfhsdjkjkfdsdsdsdsdjkg',
-      story:
-      'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
+      name: 'sara ahmed',
+      message: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+      url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60',
+      story: 'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
+      post: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+      post_image: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
+      date: 'أمس الساعة${arabicNumber.convert(01)}:${arabicNumber.convert(45)}م',
+      comment_count: '${arabicNumber.convert(120)} تعليقا ',
+      like_count: '${arabicNumber.convert(500)}',
+      share_count: '${arabicNumber.convert(23)} مشاركة ',
+      first_rect: 'assets/icons/facebook_haha.svg',
+      second_rect: 'assets/icons/facebook_wow.svg',
+      thirty_rect: 'assets/icons/facebook_sad.svg',
+
     ),
     LocalData(
       name: 'hdfghdjkghd fdsdsdsdsdsdf ghj',
