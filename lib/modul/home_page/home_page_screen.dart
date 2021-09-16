@@ -4771,6 +4771,7 @@ class HomePageScreen extends StatelessWidget {
         List<LocalData> users = HomeCubit.get(context).persons;
         List<LocalData> usersFour = HomeCubit.get(context).persons_four;
         List<LocalData> usersTwo = HomeCubit.get(context).person_two;
+        List<LocalData> person_three = HomeCubit.get(context).person_three;
         return Container(
           color: Colors.grey[400],
           child: SingleChildScrollView(
@@ -5065,6 +5066,22 @@ class HomePageScreen extends StatelessWidget {
                         itemScrollController: itemScrollController,
                         moveToIndex: moveToIndex,
                         usersFour: usersFour[index],
+                      ),
+                      separatorBuilder: (_, index) => SizedBox(
+                        height: 15,
+                      ),
+                      itemCount: 1,
+                    ),
+                    // **posts contain 3 images **
+                    ListView.separated(
+                      shrinkWrap: true,
+                      padding: const EdgeInsetsDirectional.only(top:15,),
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (_, index) => threeItemPostFun(
+                        returnWidgets: returnWidgets,
+                        itemScrollController: itemScrollController,
+                        moveToIndex: moveToIndex,
+                        usersThree: person_three[index],
                       ),
                       separatorBuilder: (_, index) => SizedBox(
                         height: 15,
@@ -11722,6 +11739,395 @@ Widget twoItemPostFun({
         ],
       ),
     );
+}
+
+Widget threeItemPostFun({
+  required moveToIndex,
+  required itemScrollController,
+  required LocalData usersThree,
+  required returnWidgets,
+}) {
+  List<Widget> selectItem = returnWidgets(
+    isCovered: true,
+    usersFour: usersThree,
+  );
+  return Container(
+    color: Colors.white,
+    child: Wrap(
+      alignment: WrapAlignment.end,
+      children: [
+        Container(
+          padding: EdgeInsetsDirectional.only(end: 15.0,top: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                    padding: EdgeInsetsDirectional.zero,
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.more_horiz_rounded,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '${usersThree.name}',
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Icon(
+                                Icons.public_rounded,
+                                color: Colors.grey[700],
+                                size: 16,
+                              ),
+                            ),
+                            Text(
+                              '${usersThree.date}',
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(start: 15),
+                    child: Align(
+                      alignment: AlignmentDirectional.topEnd,
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.blue,
+                          border: Border.all(
+                            color: primaryColor,
+                            width: 2.3,
+                          ),
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                '${usersThree.url}',
+                              ),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                '${usersThree.post??''}',
+                textDirection: TextDirection.rtl,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          height: 350,
+          width: double.infinity,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 2,
+                child: OpenContainer(
+                  transitionDuration: Duration(seconds: 1),
+                  transitionType: ContainerTransitionType.fadeThrough,
+                  openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                    moveToIndex(0).catchError((onError){});
+                    return Container(
+                      color: Colors.white,
+                      child: SafeArea(
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.only(top: 10),
+                          child: ScrollablePositionedList.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: 24,
+                            itemScrollController: itemScrollController,
+                            itemBuilder: (context , index){
+                              return selectItem[index];
+                            },
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  closedBuilder: (BuildContext context, void Function() action) {
+                    return selectItem[6];
+                  },
+                ),
+              ),
+              SizedBox(
+                width: 3,
+              ),
+              Expanded(
+                flex: 1,
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: OpenContainer(
+                        transitionDuration: Duration(seconds: 1),
+                        transitionType: ContainerTransitionType.fadeThrough,
+                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                          moveToIndex(7).catchError((onError){});
+                          return Container(
+                            color: Colors.white,
+                            child: SafeArea(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.only(top: 10),
+                                child: ScrollablePositionedList.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: 24,
+                                  itemScrollController: itemScrollController,
+                                  itemBuilder: (context , index){
+                                    return selectItem[index];
+                                  },
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        closedBuilder: (BuildContext context, void Function() action) {
+                          return selectItem[12];
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: OpenContainer(
+                        transitionDuration: Duration(seconds: 1),
+                        transitionType: ContainerTransitionType.fadeThrough,
+                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                          moveToIndex(13).catchError((onError){});
+                          return Container(
+                            color: Colors.white,
+                            child: SafeArea(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.only(top: 10),
+                                child: ScrollablePositionedList.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: 24,
+                                  itemScrollController: itemScrollController,
+                                  itemBuilder: (context , index){
+                                    return selectItem[index];
+                                  },
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        closedBuilder: (BuildContext context, void Function() action) {
+                          return selectItem[18];
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Container(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      '${usersThree.share_count}',
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '${usersThree.comment_count}',
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 20,
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          alignment: WrapAlignment.end,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(
+                              '${usersThree.like_count}',
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Stack(
+                              children: [
+                                Container(
+                                  width: 55,
+                                  height: 20,
+                                ),
+                                PositionedDirectional(
+                                  end: 0,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5),
+                                        borderRadius: BorderRadius.circular(18)),
+                                    child: SvgPicture.asset(
+                                      '${usersThree.first_rect}',
+                                    ),
+                                  ),
+                                ),
+                                PositionedDirectional(
+                                  end: 16,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5),
+                                        borderRadius: BorderRadius.circular(18)),
+                                    child: SvgPicture.asset(
+                                      '${usersThree.second_rect}',
+                                    ),
+                                  ),
+                                ),
+                                PositionedDirectional(
+                                  end: 32,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5),
+                                        borderRadius: BorderRadius.circular(18)),
+                                    child: SvgPicture.asset(
+                                      '${usersThree.thirty_rect}',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'مشاركة',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Icon(
+                              CustomIcons
+                                  .arrow_curved_to_the_left_svgrepo_com,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'تعليق',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Icon(
+                              CustomIcons.comment_svgrepo_com,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'أعجبنى',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Icon(
+                              CustomIcons.like_svgrepo_com,
+                              color: Colors.grey,
+                              size: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
 }
 
 Widget fourItemPostFun_2({

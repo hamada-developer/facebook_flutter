@@ -256,6 +256,51 @@ class HomeCubit extends Cubit<HomeStates>{
 
     ),
   ];
+
+
+  final List<LocalData> person_three = [
+    LocalData(
+      name: 'Machiel',
+      message: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb8K3r8wnRGKL-taFuE8Pz6nf7XvsD8aOWGA&usqp=CAU',
+      story: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
+      post: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+      post_image: 'https://wallpaperaccess.com/full/1968299.jpg',
+      two_post_image: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
+      three_post_image: 'https://img5.goodfon.com/wallpaper/nbig/2/ac/abstract-background-colorful-rounded-shapes-abstraktsiia-fon.jpg',
+      four_post_image: 'https://img.fotocommunity.com/bulb-of-knowledge-560651dc-d49b-47bb-b90f-6340596d6572.jpg?height=1080',
+      date: 'اليوم الساعة${arabicNumber.convert(05)}:${arabicNumber.convert(15)}م',
+      comment_count: '${arabicNumber.convert(700)} تعليقا ',
+      like_count: '${arabicNumber.convert(5220)}',
+      share_count: '${arabicNumber.convert(2213)} مشاركة ',
+      first_rect: 'assets/icons/facebook_haha.svg',
+      second_rect: 'assets/icons/facebook_wow.svg',
+      thirty_rect: 'assets/icons/facebook_sad.svg',
+
+    ),
+    LocalData(
+      name: 'Sara ahmed',
+      message: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+      url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60',
+      story: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
+      post: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
+      post_image: 'https://img5.goodfon.com/wallpaper/nbig/2/ac/abstract-background-colorful-rounded-shapes-abstraktsiia-fon.jpg',
+      two_post_image: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
+      three_post_image: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
+      four_post_image: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
+      date: 'أمس الساعة${arabicNumber.convert(03)}:${arabicNumber.convert(54)}م',
+      comment_count: '${arabicNumber.convert(12000)} تعليقا ',
+      like_count: '${arabicNumber.convert(504410)}',
+      share_count: '${arabicNumber.convert(2233)} مشاركة ',
+      first_rect: 'assets/icons/facebook_haha.svg',
+      second_rect: 'assets/icons/facebook_wow.svg',
+      thirty_rect: 'assets/icons/facebook_sad.svg',
+
+    ),
+  ];
+
+
+
   HomeCubit (): super(InitialHomeState());
   static HomeCubit get(context) => BlocProvider.of(context);
 }
