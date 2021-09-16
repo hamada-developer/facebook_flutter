@@ -23,1127 +23,6 @@ class HomePageScreen extends StatelessWidget {
     itemScrollController.jumpTo(index: index);
   }
 
-  final List<Widget> FiveItemPost = [
-    Container(
-      color: Colors.green,
-      width: double.infinity,
-      height: 600,
-    ),
-    Container(
-      color: Colors.green,
-      width: double.infinity,
-      height: 600,
-    ),
-    Container(
-      color: Colors.deepOrange,
-      width: double.infinity,
-      height: 600,
-    ),
-    Container(
-      color: Colors.brown,
-      width: double.infinity,
-      height: 600,
-    ),
-    Container(
-      color: Colors.amber,
-      width: double.infinity,
-      height: 600,
-    ),
-  ];
-  final List<Widget> FiveItemPost_2 = [
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          IconButton(
-            padding: EdgeInsetsDirectional.zero,
-            onPressed: () {},
-            icon: Icon(
-              Icons.more_horiz_rounded,
-              color: Colors.grey[700],
-            ),
-          ),
-          Spacer(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Sara Ahmed',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Icon(
-                      Icons.public_rounded,
-                      color: Colors.grey[700],
-                      size: 16,
-                    ),
-                  ),
-                  Text(
-                    'أمس الساعة 9:13 م',
-                    style: TextStyle(
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.only(start: 15),
-            child: Align(
-              alignment: AlignmentDirectional.topEnd,
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                  border: Border.all(
-                    color: primaryColor,
-                    width: 2.3,
-                  ),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-                      ),
-                      fit: BoxFit.cover),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Wrap(
-            children: [
-              Text(
-                ' الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد \n بطل دورى السوبر المصري لكرة السلة\nبطل دورى السوبر المصري لكرة السلة',
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.green,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.blue,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.deepOrange,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.brown,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.amber,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-  ];
 
    List<Widget> returnWidgets({
      bool isCovered = false,
@@ -2145,9 +1024,15 @@ class HomePageScreen extends StatelessWidget {
       ),
       // new item
       Container(
-        color: Colors.amber,
+        color: Colors.green,
         width: double.infinity,
         height: 600,
+        child: Image(
+          image: NetworkImage(
+            '${usersFour.four_post_image}',
+          ),
+          fit: isCovered? BoxFit.cover : BoxFit.none,
+        ),
       ),
       SizedBox(
         height: 15,
@@ -2157,7 +1042,7 @@ class HomePageScreen extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              '${arabicNumber.convert(4777)} مشاركة ',
+              '${usersFour.share_count}',
               textDirection: TextDirection.rtl,
               style: TextStyle(
                 color: Colors.grey,
@@ -2167,71 +1052,79 @@ class HomePageScreen extends StatelessWidget {
               width: 5,
             ),
             Text(
-              '${arabicNumber.convert(4777)} تعليقا ',
+              '${usersFour.comment_count}',
               textDirection: TextDirection.rtl,
               style: TextStyle(
                 color: Colors.grey,
               ),
             ),
-            Spacer(),
-            Container(
-              width: 85,
-              child: Stack(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        '${arabicNumber.convert(43576)}',
-                        textDirection: TextDirection.rtl,
-                        style: TextStyle(
-                          color: Colors.grey,
+            Expanded(
+              child: Container(
+                height: 20,
+                child: Wrap(
+                  direction: Axis.horizontal,
+                  alignment: WrapAlignment.end,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    Text(
+                      '${usersFour.like_count}',
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Stack(
+                      children: [
+                        Container(
+                          width: 55,
+                          height: 20,
                         ),
-                      ),
-                    ],
-                  ),
-                  PositionedDirectional(
-                    end: 0,
-                    child: Container(
-                      height: 20,
-                      width: 20,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.white, width: 1.5),
-                          borderRadius: BorderRadius.circular(18)),
-                      child: SvgPicture.asset(
-                        'assets/icons/facebook_love.svg',
-                      ),
+                        PositionedDirectional(
+                          end: 0,
+                          child: Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: Colors.white, width: 1.5),
+                                borderRadius: BorderRadius.circular(18)),
+                            child: SvgPicture.asset(
+                              '${usersFour.first_rect}',
+                            ),
+                          ),
+                        ),
+                        PositionedDirectional(
+                          end: 16,
+                          child: Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: Colors.white, width: 1.5),
+                                borderRadius: BorderRadius.circular(18)),
+                            child: SvgPicture.asset(
+                              '${usersFour.second_rect}',
+                            ),
+                          ),
+                        ),
+                        PositionedDirectional(
+                          end: 32,
+                          child: Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: Colors.white, width: 1.5),
+                                borderRadius: BorderRadius.circular(18)),
+                            child: SvgPicture.asset(
+                              '${usersFour.thirty_rect}',
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  PositionedDirectional(
-                    end: 16,
-                    child: Container(
-                      height: 20,
-                      width: 20,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.white, width: 1.5),
-                          borderRadius: BorderRadius.circular(18)),
-                      child: SvgPicture.asset(
-                        'assets/icons/care.svg',
-                      ),
-                    ),
-                  ),
-                  PositionedDirectional(
-                    end: 32,
-                    child: Container(
-                      height: 20,
-                      width: 20,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.white, width: 1.5),
-                          borderRadius: BorderRadius.circular(18)),
-                      child: SvgPicture.asset(
-                        'assets/icons/facebook_like.svg',
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
@@ -2315,2454 +1208,6 @@ class HomePageScreen extends StatelessWidget {
     ];
   }
 
-  final List<Widget> fourItemPost = [
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          IconButton(
-            padding: EdgeInsetsDirectional.zero,
-            onPressed: () {},
-            icon: Icon(
-              Icons.more_horiz_rounded,
-              color: Colors.grey[700],
-            ),
-          ),
-          Spacer(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Sara Ahmed',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Icon(
-                      Icons.public_rounded,
-                      color: Colors.grey[700],
-                      size: 16,
-                    ),
-                  ),
-                  Text(
-                    'أمس الساعة 9:13 م',
-                    style: TextStyle(
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.only(start: 15),
-            child: Align(
-              alignment: AlignmentDirectional.topEnd,
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                  border: Border.all(
-                    color: primaryColor,
-                    width: 2.3,
-                  ),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-                      ),
-                      fit: BoxFit.cover),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Wrap(
-            children: [
-              Text(
-                ' الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد \n بطل دورى السوبر المصري لكرة السلة\nبطل دورى السوبر المصري لكرة السلة',
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.yellow,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.purpleAccent,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.tealAccent,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.deepPurple,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    // new item
-    Container(
-      color: Colors.amber,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-  ];
-
-  final List<Widget> threeItemPost = [
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          IconButton(
-            padding: EdgeInsetsDirectional.zero,
-            onPressed: () {},
-            icon: Icon(
-              Icons.more_horiz_rounded,
-              color: Colors.grey[700],
-            ),
-          ),
-          Spacer(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Sara Ahmed',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Icon(
-                      Icons.public_rounded,
-                      color: Colors.grey[700],
-                      size: 16,
-                    ),
-                  ),
-                  Text(
-                    'أمس الساعة 9:13 م',
-                    style: TextStyle(
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.only(start: 15),
-            child: Align(
-              alignment: AlignmentDirectional.topEnd,
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                  border: Border.all(
-                    color: primaryColor,
-                    width: 2.3,
-                  ),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-                      ),
-                      fit: BoxFit.cover),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Wrap(
-            children: [
-              Text(
-                ' الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد \n بطل دورى السوبر المصري لكرة السلة\nبطل دورى السوبر المصري لكرة السلة',
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.green,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.red,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.blueAccent,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-  ];
-
-
-  final List<Widget> twoItemPost = [
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          IconButton(
-            padding: EdgeInsetsDirectional.zero,
-            onPressed: () {},
-            icon: Icon(
-              Icons.more_horiz_rounded,
-              color: Colors.grey[700],
-            ),
-          ),
-          Spacer(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Sara Ahmed',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Icon(
-                      Icons.public_rounded,
-                      color: Colors.grey[700],
-                      size: 16,
-                    ),
-                  ),
-                  Text(
-                    'أمس الساعة 9:13 م',
-                    style: TextStyle(
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.only(start: 15),
-            child: Align(
-              alignment: AlignmentDirectional.topEnd,
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                  border: Border.all(
-                    color: primaryColor,
-                    width: 2.3,
-                  ),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-                      ),
-                      fit: BoxFit.cover),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Wrap(
-            children: [
-              Text(
-                ' الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد \n بطل دورى السوبر المصري لكرة السلة\nبطل دورى السوبر المصري لكرة السلة',
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.purple,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-    Container(
-      color: Colors.deepOrange,
-      width: double.infinity,
-      height: 600,
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Row(
-        children: [
-          Text(
-            '${arabicNumber.convert(4777)} مشاركة ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          SizedBox(
-            width: 5,
-          ),
-          Text(
-            '${arabicNumber.convert(4777)} تعليقا ',
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-          Spacer(),
-          Container(
-            width: 85,
-            child: Stack(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      '${arabicNumber.convert(43576)}',
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-                PositionedDirectional(
-                  end: 0,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_love.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 16,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/care.svg',
-                    ),
-                  ),
-                ),
-                PositionedDirectional(
-                  end: 32,
-                  child: Container(
-                    height: 20,
-                    width: 20,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.white, width: 1.5),
-                        borderRadius: BorderRadius.circular(18)),
-                    child: SvgPicture.asset(
-                      'assets/icons/facebook_like.svg',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 15,
-    ),
-    Row(
-      children: [
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'مشاركة',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons
-                      .arrow_curved_to_the_left_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'تعليق',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Icon(
-                  CustomIcons.comment_svgrepo_com,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'أعجبنى',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  CustomIcons.like_svgrepo_com,
-                  color: Colors.grey,
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    ),
-    SizedBox(
-      height: 10,
-    ),
-  ];
-
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeStates>(
@@ -4772,6 +1217,7 @@ class HomePageScreen extends StatelessWidget {
         List<LocalData> usersFour = HomeCubit.get(context).persons_four;
         List<LocalData> usersTwo = HomeCubit.get(context).person_two;
         List<LocalData> person_three = HomeCubit.get(context).person_three;
+        List<LocalData> person_five = HomeCubit.get(context).person_five;
         return Container(
           color: Colors.grey[400],
           child: SingleChildScrollView(
@@ -5088,808 +1534,23 @@ class HomePageScreen extends StatelessWidget {
                       ),
                       itemCount: 1,
                     ),
+                    // **posts contain 5 images **
+                    ListView.separated(
+                      shrinkWrap: true,
+                      padding: const EdgeInsetsDirectional.only(top:15,),
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (_, index) => fiveItemPostFun(
+                        returnWidgets: returnWidgets,
+                        itemScrollController: itemScrollController,
+                        moveToIndex: moveToIndex,
+                        usersFive: person_five[index],
+                      ),
+                      separatorBuilder: (_, index) => SizedBox(
+                        height: 15,
+                      ),
+                      itemCount: 1,
+                    ),
                   ],
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  color: Colors.white,
-                  child: Wrap(
-                    alignment: WrapAlignment.end,
-                    children: [
-                      Container(
-                        padding: EdgeInsetsDirectional.only(end: 15.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Row(
-                              children: [
-                                IconButton(
-                                  padding: EdgeInsetsDirectional.zero,
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.more_horiz_rounded,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                                Spacer(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      'Sara Ahmed',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                          const EdgeInsets.symmetric(horizontal: 4.0),
-                                          child: Icon(
-                                            Icons.public_rounded,
-                                            color: Colors.grey[700],
-                                            size: 16,
-                                          ),
-                                        ),
-                                        Text(
-                                          'أمس الساعة 9:13 م',
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.only(start: 15),
-                                  child: Align(
-                                    alignment: AlignmentDirectional.topEnd,
-                                    child: Container(
-                                      width: 40,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.blue,
-                                        border: Border.all(
-                                          color: primaryColor,
-                                          width: 2.3,
-                                        ),
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-                                            ),
-                                            fit: BoxFit.cover),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد\n بطل دورى السوبر المصري لكرة السلة \n',
-                              textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 350,
-                        width: double.infinity,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: OpenContainer(
-                                transitionDuration: Duration(seconds: 1),
-                                transitionType: ContainerTransitionType.fadeThrough,
-                                openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                  moveToIndex(0).catchError((onError){});
-                                  return Container(
-                                    color: Colors.white,
-                                    child: SafeArea(
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.only(top: 10),
-                                        child: ScrollablePositionedList.builder(
-                                          scrollDirection: Axis.vertical,
-                                          itemCount: threeItemPost.length,
-                                          itemScrollController: itemScrollController,
-                                          itemBuilder: (context , index){
-                                            return threeItemPost[index];
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                                closedBuilder: (BuildContext context, void Function() action) {
-                                  return threeItemPost[6];
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              width: 3,
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: OpenContainer(
-                                      transitionDuration: Duration(seconds: 1),
-                                      transitionType: ContainerTransitionType.fadeThrough,
-                                      openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                        moveToIndex(7).catchError((onError){});
-                                        return Container(
-                                          color: Colors.white,
-                                          child: SafeArea(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional.only(top: 10),
-                                              child: ScrollablePositionedList.builder(
-                                                scrollDirection: Axis.vertical,
-                                                itemCount: threeItemPost.length,
-                                                itemScrollController: itemScrollController,
-                                                itemBuilder: (context , index){
-                                                  return threeItemPost[index];
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      closedBuilder: (BuildContext context, void Function() action) {
-                                        return threeItemPost[12];
-                                      },
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 3,
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: OpenContainer(
-                                      transitionDuration: Duration(seconds: 1),
-                                      transitionType: ContainerTransitionType.fadeThrough,
-                                      openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                        moveToIndex(13).catchError((onError){});
-                                        return Container(
-                                          color: Colors.white,
-                                          child: SafeArea(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional.only(top: 10),
-                                              child: ScrollablePositionedList.builder(
-                                                scrollDirection: Axis.vertical,
-                                                itemCount: threeItemPost.length,
-                                                itemScrollController: itemScrollController,
-                                                itemBuilder: (context , index){
-                                                  return threeItemPost[index];
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      closedBuilder: (BuildContext context, void Function() action) {
-                                        return threeItemPost[18];
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Container(
-                          width: double.infinity,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    '${arabicNumber.convert(4777)} مشاركة ',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    '${arabicNumber.convert(4777)} تعليقا ',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Container(
-                                    width: 85,
-                                    child: Stack(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Text(
-                                              '${arabicNumber.convert(43576)}',
-                                              textDirection: TextDirection.rtl,
-                                              style: TextStyle(
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        PositionedDirectional(
-                                          end: 0,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/facebook_love.svg',
-                                            ),
-                                          ),
-                                        ),
-                                        PositionedDirectional(
-                                          end: 16,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/care.svg',
-                                            ),
-                                          ),
-                                        ),
-                                        PositionedDirectional(
-                                          end: 32,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/facebook_like.svg',
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'مشاركة',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Icon(
-                                            CustomIcons
-                                                .arrow_curved_to_the_left_svgrepo_com,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'تعليق',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Icon(
-                                            CustomIcons.comment_svgrepo_com,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'أعجبنى',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Icon(
-                                            CustomIcons.like_svgrepo_com,
-                                            color: Colors.grey,
-                                            size: 20,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  color: Colors.white,
-                  child: Wrap(
-                    alignment: WrapAlignment.end,
-                    children: [
-                      Container(
-                        padding: EdgeInsetsDirectional.only(end: 15.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Row(
-                              children: [
-                                IconButton(
-                                  padding: EdgeInsetsDirectional.zero,
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.more_horiz_rounded,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                                Spacer(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      'Sara Ahmed',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                          const EdgeInsets.symmetric(horizontal: 4.0),
-                                          child: Icon(
-                                            Icons.public_rounded,
-                                            color: Colors.grey[700],
-                                            size: 16,
-                                          ),
-                                        ),
-                                        Text(
-                                          'أمس الساعة 9:13 م',
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.only(start: 15),
-                                  child: Align(
-                                    alignment: AlignmentDirectional.topEnd,
-                                    child: Container(
-                                      width: 40,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.blue,
-                                        border: Border.all(
-                                          color: primaryColor,
-                                          width: 2.3,
-                                        ),
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-                                            ),
-                                            fit: BoxFit.cover),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد\n بطل دورى السوبر المصري لكرة السلة \n',
-                              textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 350,
-                        width: double.infinity,
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: OpenContainer(
-                                      transitionDuration: Duration(seconds: 1),
-                                      transitionType: ContainerTransitionType.fadeThrough,
-                                      openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                        moveToIndex(0).catchError((onError){});
-                                        return Container(
-                                          color: Colors.white,
-                                          child: SafeArea(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional.only(top: 10),
-                                              child: ScrollablePositionedList.builder(
-                                                scrollDirection: Axis.vertical,
-                                                itemCount: FiveItemPost_2.length,
-                                                itemScrollController: itemScrollController,
-                                                itemBuilder: (context , index){
-                                                  return FiveItemPost_2[index];
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      closedBuilder: (BuildContext context, void Function() action) {
-                                        return FiveItemPost_2[6];
-                                      },
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Expanded(
-                                    child: OpenContainer(
-                                      transitionDuration: Duration(seconds: 1),
-                                      transitionType: ContainerTransitionType.fadeThrough,
-                                      openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                        moveToIndex(7).catchError((onError){});
-                                        return Container(
-                                          color: Colors.white,
-                                          child: SafeArea(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional.only(top: 10),
-                                              child: ScrollablePositionedList.builder(
-                                                scrollDirection: Axis.vertical,
-                                                itemCount: FiveItemPost_2.length,
-                                                itemScrollController: itemScrollController,
-                                                itemBuilder: (context , index){
-                                                  return FiveItemPost_2[index];
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      closedBuilder: (BuildContext context, void Function() action) {
-                                        return FiveItemPost_2[12];
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: OpenContainer(
-                                      transitionDuration: Duration(seconds: 1),
-                                      transitionType: ContainerTransitionType.fadeThrough,
-                                      openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                        moveToIndex(13).catchError((onError){});
-                                        return Container(
-                                          color: Colors.white,
-                                          child: SafeArea(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional.only(top: 10),
-                                              child: ScrollablePositionedList.builder(
-                                                scrollDirection: Axis.vertical,
-                                                itemCount: FiveItemPost_2.length,
-                                                itemScrollController: itemScrollController,
-                                                itemBuilder: (context , index){
-                                                  return FiveItemPost_2[index];
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      closedBuilder: (BuildContext context, void Function() action) {
-                                        return FiveItemPost_2[18];
-                                      },
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Expanded(
-                                    child: OpenContainer(
-                                      transitionDuration: Duration(seconds: 1),
-                                      transitionType: ContainerTransitionType.fadeThrough,
-                                      openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                        moveToIndex(19).catchError((onError){});
-                                        return Container(
-                                          color: Colors.white,
-                                          child: SafeArea(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional.only(top: 10),
-                                              child: ScrollablePositionedList.builder(
-                                                scrollDirection: Axis.vertical,
-                                                itemCount: FiveItemPost_2.length,
-                                                itemScrollController: itemScrollController,
-                                                itemBuilder: (context , index){
-                                                  return FiveItemPost_2[index];
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      closedBuilder: (BuildContext context, void Function() action) {
-                                        return FiveItemPost_2[24];
-                                      },
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 3,
-                                  ),
-                                  Expanded(
-                                    child: OpenContainer(
-                                      transitionDuration: Duration(seconds: 1),
-                                      transitionType: ContainerTransitionType.fadeThrough,
-                                      openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                        moveToIndex(25).catchError((onError){});
-                                        return Container(
-                                          color: Colors.white,
-                                          child: SafeArea(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional.only(top: 10),
-                                              child: ScrollablePositionedList.builder(
-                                                scrollDirection: Axis.vertical,
-                                                itemCount: FiveItemPost_2.length,
-                                                itemScrollController: itemScrollController,
-                                                itemBuilder: (context , index){
-                                                  return FiveItemPost_2[index];
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      closedBuilder: (BuildContext context, void Function() action) {
-                                        return FiveItemPost_2[30];
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Container(
-                          width: double.infinity,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    '${arabicNumber.convert(4777)} مشاركة ',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    '${arabicNumber.convert(4777)} تعليقا ',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Container(
-                                    width: 85,
-                                    child: Stack(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Text(
-                                              '${arabicNumber.convert(43576)}',
-                                              textDirection: TextDirection.rtl,
-                                              style: TextStyle(
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        PositionedDirectional(
-                                          end: 0,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/facebook_love.svg',
-                                            ),
-                                          ),
-                                        ),
-                                        PositionedDirectional(
-                                          end: 16,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/care.svg',
-                                            ),
-                                          ),
-                                        ),
-                                        PositionedDirectional(
-                                          end: 32,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/facebook_like.svg',
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'مشاركة',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Icon(
-                                            CustomIcons
-                                                .arrow_curved_to_the_left_svgrepo_com,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'تعليق',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Icon(
-                                            CustomIcons.comment_svgrepo_com,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'أعجبنى',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Icon(
-                                            CustomIcons.like_svgrepo_com,
-                                            color: Colors.grey,
-                                            size: 20,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
               ],
             ),
@@ -12464,6 +8125,462 @@ Widget fourItemPostFun_2({
                                         borderRadius: BorderRadius.circular(18)),
                                     child: SvgPicture.asset(
                                       '${usersFour.thirty_rect}',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'مشاركة',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Icon(
+                              CustomIcons
+                                  .arrow_curved_to_the_left_svgrepo_com,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'تعليق',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Icon(
+                              CustomIcons.comment_svgrepo_com,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'أعجبنى',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Icon(
+                              CustomIcons.like_svgrepo_com,
+                              color: Colors.grey,
+                              size: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget fiveItemPostFun({
+  required LocalData usersFive,
+  required moveToIndex,
+  required itemScrollController,
+  required returnWidgets,
+}){
+  List<Widget> selectItem = returnWidgets(
+    isCovered: true,
+    usersFour: usersFive,
+  );
+
+  return Container(
+    color: Colors.white,
+    child: Wrap(
+      alignment: WrapAlignment.end,
+      children: [
+        Container(
+          padding: EdgeInsetsDirectional.only(end: 15.0,top: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                    padding: EdgeInsetsDirectional.zero,
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.more_horiz_rounded,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '${usersFive.name}',
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Icon(
+                                Icons.public_rounded,
+                                color: Colors.grey[700],
+                                size: 16,
+                              ),
+                            ),
+                            Text(
+                              '${usersFive.date}',
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(start: 15),
+                    child: Align(
+                      alignment: AlignmentDirectional.topEnd,
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.blue,
+                          border: Border.all(
+                            color: primaryColor,
+                            width: 2.3,
+                          ),
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                '${usersFive.url}',
+                              ),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                '${usersFive.post??''}',
+                textDirection: TextDirection.rtl,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          height: 350,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 2,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: OpenContainer(
+                        transitionDuration: Duration(seconds: 1),
+                        transitionType: ContainerTransitionType.fadeThrough,
+                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                          moveToIndex(0).catchError((onError){});
+                          return Container(
+                            color: Colors.white,
+                            child: SafeArea(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.only(top: 10),
+                                child: ScrollablePositionedList.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: 34,
+                                  itemScrollController: itemScrollController,
+                                  itemBuilder: (context , index){
+                                    return selectItem[index];
+                                  },
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        closedBuilder: (BuildContext context, void Function() action) {
+                          return selectItem[6];
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 3,
+                    ),
+                    Expanded(
+                      child: OpenContainer(
+                        transitionDuration: Duration(seconds: 1),
+                        transitionType: ContainerTransitionType.fadeThrough,
+                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                          moveToIndex(7).catchError((onError){});
+                          return Container(
+                            color: Colors.white,
+                            child: SafeArea(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.only(top: 10),
+                                child: ScrollablePositionedList.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: 34,
+                                  itemScrollController: itemScrollController,
+                                  itemBuilder: (context , index){
+                                    return selectItem[index];
+                                  },
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        closedBuilder: (BuildContext context, void Function() action) {
+                          return selectItem[12];
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 3,
+              ),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: OpenContainer(
+                        transitionDuration: Duration(seconds: 1),
+                        transitionType: ContainerTransitionType.fadeThrough,
+                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                          moveToIndex(13).catchError((onError){});
+                          return Container(
+                            color: Colors.white,
+                            child: SafeArea(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.only(top: 10),
+                                child: ScrollablePositionedList.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: 34,
+                                  itemScrollController: itemScrollController,
+                                  itemBuilder: (context , index){
+                                    return selectItem[index];
+                                  },
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        closedBuilder: (BuildContext context, void Function() action) {
+                          return selectItem[18];
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 3,
+                    ),
+                    Expanded(
+                      child: OpenContainer(
+                        transitionDuration: Duration(seconds: 1),
+                        transitionType: ContainerTransitionType.fadeThrough,
+                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                          moveToIndex(19).catchError((onError){});
+                          return Container(
+                            color: Colors.white,
+                            child: SafeArea(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.only(top: 10),
+                                child: ScrollablePositionedList.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: 34,
+                                  itemScrollController: itemScrollController,
+                                  itemBuilder: (context , index){
+                                    return selectItem[index];
+                                  },
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        closedBuilder: (BuildContext context, void Function() action) {
+                          return selectItem[24];
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 3,
+                    ),
+                    Expanded(
+                      child: OpenContainer(
+                        transitionDuration: Duration(seconds: 1),
+                        transitionType: ContainerTransitionType.fadeThrough,
+                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                          moveToIndex(25).catchError((onError){});
+                          return Container(
+                            color: Colors.white,
+                            child: SafeArea(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.only(top: 10),
+                                child: ScrollablePositionedList.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: 34,
+                                  itemScrollController: itemScrollController,
+                                  itemBuilder: (context , index){
+                                    return selectItem[index];
+                                  },
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        closedBuilder: (BuildContext context, void Function() action) {
+                          return selectItem[30];
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Container(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      '${usersFive.share_count}',
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '${usersFive.comment_count}',
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 20,
+
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          alignment: WrapAlignment.end,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(
+                              '${usersFive.like_count}',
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Stack(
+                              children: [
+                                Container(
+                                  width: 55,
+                                  height: 20,
+                                ),
+                                PositionedDirectional(
+                                  end: 0,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5),
+                                        borderRadius: BorderRadius.circular(18)),
+                                    child: SvgPicture.asset(
+                                      '${usersFive.first_rect}',
+                                    ),
+                                  ),
+                                ),
+                                PositionedDirectional(
+                                  end: 16,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5),
+                                        borderRadius: BorderRadius.circular(18)),
+                                    child: SvgPicture.asset(
+                                      '${usersFive.second_rect}',
+                                    ),
+                                  ),
+                                ),
+                                PositionedDirectional(
+                                  end: 32,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5),
+                                        borderRadius: BorderRadius.circular(18)),
+                                    child: SvgPicture.asset(
+                                      '${usersFive.thirty_rect}',
                                     ),
                                   ),
                                 ),
