@@ -5055,734 +5055,23 @@ class HomePageScreen extends StatelessWidget {
                       ),
                       itemCount: 1,
                     ),
+                    // **posts contain 4 images part two**
+                    ListView.separated(
+                      shrinkWrap: true,
+                      padding: const EdgeInsetsDirectional.only(top:15,),
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (_, index) => fourItemPostFun_2(
+                        returnWidgets: returnWidgets,
+                        itemScrollController: itemScrollController,
+                        moveToIndex: moveToIndex,
+                        usersFour: usersFour[index],
+                      ),
+                      separatorBuilder: (_, index) => SizedBox(
+                        height: 15,
+                      ),
+                      itemCount: 1,
+                    ),
                   ],
-                ),
-                Container(
-                  color: Colors.white,
-                  child: Wrap(
-                    alignment: WrapAlignment.end,
-                    children: [
-                      Container(
-                        padding: EdgeInsetsDirectional.only(end: 15.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Row(
-                              children: [
-                                IconButton(
-                                  padding: EdgeInsetsDirectional.zero,
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.more_horiz_rounded,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                                Spacer(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      'Sara Ahmed',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                          const EdgeInsets.symmetric(horizontal: 4.0),
-                                          child: Icon(
-                                            Icons.public_rounded,
-                                            color: Colors.grey[700],
-                                            size: 16,
-                                          ),
-                                        ),
-                                        Text(
-                                          'أمس الساعة 9:13 م',
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.only(start: 15),
-                                  child: Align(
-                                    alignment: AlignmentDirectional.topEnd,
-                                    child: Container(
-                                      width: 40,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.blue,
-                                        border: Border.all(
-                                          color: primaryColor,
-                                          width: 2.3,
-                                        ),
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-                                            ),
-                                            fit: BoxFit.cover),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد\n بطل دورى السوبر المصري لكرة السلة \n',
-                              textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 350,
-                        width: double.infinity,
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: OpenContainer(
-                                transitionDuration: Duration(seconds: 1),
-                                transitionType: ContainerTransitionType.fadeThrough,
-                                openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                  moveToIndex(0).catchError((onError){});
-                                  return Container(
-                                    color: Colors.white,
-                                    child: SafeArea(
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.only(top: 10),
-                                        child: ScrollablePositionedList.builder(
-                                          scrollDirection: Axis.vertical,
-                                          itemCount: twoItemPost.length,
-                                          itemScrollController: itemScrollController,
-                                          itemBuilder: (context , index){
-                                            return twoItemPost[index];
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                                closedBuilder: (BuildContext context, void Function() action) {
-                                  return twoItemPost[6];
-                                },
-                              ),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Expanded(
-                              child: OpenContainer(
-                                transitionDuration: Duration(seconds: 1),
-                                transitionType: ContainerTransitionType.fadeThrough,
-                                openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                  moveToIndex(7).catchError((onError){});
-                                  return Container(
-                                    color: Colors.white,
-                                    child: SafeArea(
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.only(top: 10),
-                                        child: ScrollablePositionedList.builder(
-                                          scrollDirection: Axis.vertical,
-                                          itemCount: twoItemPost.length,
-                                          itemScrollController: itemScrollController,
-                                          itemBuilder: (context , index){
-                                            return twoItemPost[index];
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                                closedBuilder: (BuildContext context, void Function() action) {
-                                  return twoItemPost[12];
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Container(
-                          width: double.infinity,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    '${arabicNumber.convert(4777)} مشاركة ',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    '${arabicNumber.convert(4777)} تعليقا ',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Container(
-                                    width: 85,
-                                    child: Stack(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Text(
-                                              '${arabicNumber.convert(43576)}',
-                                              textDirection: TextDirection.rtl,
-                                              style: TextStyle(
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        PositionedDirectional(
-                                          end: 0,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/facebook_love.svg',
-                                            ),
-                                          ),
-                                        ),
-                                        PositionedDirectional(
-                                          end: 16,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/care.svg',
-                                            ),
-                                          ),
-                                        ),
-                                        PositionedDirectional(
-                                          end: 32,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/facebook_like.svg',
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'مشاركة',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Icon(
-                                            CustomIcons
-                                                .arrow_curved_to_the_left_svgrepo_com,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'تعليق',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Icon(
-                                            CustomIcons.comment_svgrepo_com,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'أعجبنى',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Icon(
-                                            CustomIcons.like_svgrepo_com,
-                                            color: Colors.grey,
-                                            size: 20,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  color: Colors.white,
-                  child: Wrap(
-                    alignment: WrapAlignment.end,
-                    children: [
-                      Container(
-                        padding: EdgeInsetsDirectional.only(end: 15.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Row(
-                              children: [
-                                IconButton(
-                                  padding: EdgeInsetsDirectional.zero,
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.more_horiz_rounded,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                                Spacer(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      'Sara Ahmed',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                          const EdgeInsets.symmetric(horizontal: 4.0),
-                                          child: Icon(
-                                            Icons.public_rounded,
-                                            color: Colors.grey[700],
-                                            size: 16,
-                                          ),
-                                        ),
-                                        Text(
-                                          'أمس الساعة 9:13 م',
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.only(start: 15),
-                                  child: Align(
-                                    alignment: AlignmentDirectional.topEnd,
-                                    child: Container(
-                                      width: 40,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.blue,
-                                        border: Border.all(
-                                          color: primaryColor,
-                                          width: 2.3,
-                                        ),
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
-                                            ),
-                                            fit: BoxFit.cover),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              'الزمالك هذا الموسم \nبطل الدورى لكرة القدم\n بطل الدورى المصرى لكرة اليد\n بطل دورى السوبر المصري لكرة السلة \n',
-                              textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 350,
-                        width: double.infinity,
-                        child: Column(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: OpenContainer(
-                                        transitionDuration: Duration(seconds: 1),
-                                        transitionType: ContainerTransitionType.fadeThrough,
-                                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                          moveToIndex(0).catchError((onError){});
-                                          return Container(
-                                            color: Colors.white,
-                                            child: SafeArea(
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional.only(top: 10),
-                                                child: ScrollablePositionedList.builder(
-                                                  scrollDirection: Axis.vertical,
-                                                  itemCount: fourItemPost.length,
-                                                  itemScrollController: itemScrollController,
-                                                  itemBuilder: (context , index){
-                                                    return fourItemPost[index];
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        closedBuilder: (BuildContext context, void Function() action) {
-                                          return fourItemPost[6];
-                                        },
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 3,
-                                    ),
-                                    Expanded(
-                                      child: OpenContainer(
-                                        transitionDuration: Duration(seconds: 1),
-                                        transitionType: ContainerTransitionType.fadeThrough,
-                                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                          moveToIndex(7).catchError((onError){});
-                                          return Container(
-                                            color: Colors.white,
-                                            child: SafeArea(
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional.only(top: 10),
-                                                child: ScrollablePositionedList.builder(
-                                                  scrollDirection: Axis.vertical,
-                                                  itemCount: fourItemPost.length,
-                                                  itemScrollController: itemScrollController,
-                                                  itemBuilder: (context , index){
-                                                    return fourItemPost[index];
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        closedBuilder: (BuildContext context, void Function() action) {
-                                          return fourItemPost[12];
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Expanded(
-                              child: Container(
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: OpenContainer(
-                                        transitionDuration: Duration(seconds: 1),
-                                        transitionType: ContainerTransitionType.fadeThrough,
-                                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                          moveToIndex(13).catchError((onError){});
-                                          return Container(
-                                            color: Colors.white,
-                                            child: SafeArea(
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional.only(top: 10),
-                                                child: ScrollablePositionedList.builder(
-                                                  scrollDirection: Axis.vertical,
-                                                  itemCount: fourItemPost.length,
-                                                  itemScrollController: itemScrollController,
-                                                  itemBuilder: (context , index){
-                                                    return fourItemPost[index];
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        closedBuilder: (BuildContext context, void Function() action) {
-                                          return fourItemPost[18];
-                                        },
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 3,
-                                    ),
-                                    Expanded(
-                                      child: OpenContainer(
-                                        transitionDuration: Duration(seconds: 1),
-                                        transitionType: ContainerTransitionType.fadeThrough,
-                                        openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
-                                          moveToIndex(19).catchError((onError){});
-                                          return Container(
-                                            color: Colors.white,
-                                            child: SafeArea(
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional.only(top: 10),
-                                                child: ScrollablePositionedList.builder(
-                                                  scrollDirection: Axis.vertical,
-                                                  itemCount: fourItemPost.length,
-                                                  itemScrollController: itemScrollController,
-                                                  itemBuilder: (context , index){
-                                                    return fourItemPost[index];
-                                                  },
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        closedBuilder: (BuildContext context, void Function() action) {
-                                          return fourItemPost[24];
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Container(
-                          width: double.infinity,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    '${arabicNumber.convert(4777)} مشاركة ',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    '${arabicNumber.convert(4777)} تعليقا ',
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Container(
-                                    width: 85,
-                                    child: Stack(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Text(
-                                              '${arabicNumber.convert(43576)}',
-                                              textDirection: TextDirection.rtl,
-                                              style: TextStyle(
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        PositionedDirectional(
-                                          end: 0,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/facebook_love.svg',
-                                            ),
-                                          ),
-                                        ),
-                                        PositionedDirectional(
-                                          end: 16,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/care.svg',
-                                            ),
-                                          ),
-                                        ),
-                                        PositionedDirectional(
-                                          end: 32,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    color: Colors.white, width: 1.5),
-                                                borderRadius: BorderRadius.circular(18)),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/facebook_like.svg',
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'مشاركة',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Icon(
-                                            CustomIcons
-                                                .arrow_curved_to_the_left_svgrepo_com,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'تعليق',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          Icon(
-                                            CustomIcons.comment_svgrepo_com,
-                                            color: Colors.grey,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'أعجبنى',
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Icon(
-                                            CustomIcons.like_svgrepo_com,
-                                            color: Colors.grey,
-                                            size: 20,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
                 SizedBox(
                   height: 15,
@@ -12433,6 +11722,432 @@ Widget twoItemPostFun({
         ],
       ),
     );
+}
+
+Widget fourItemPostFun_2({
+  required LocalData usersFour,
+  required moveToIndex,
+  required itemScrollController,
+  required returnWidgets,
+}){
+  List<Widget> selectItem = returnWidgets(
+    isCovered: true,
+    usersFour: usersFour,
+  );
+  return Container(
+    color: Colors.white,
+    child: Wrap(
+      alignment: WrapAlignment.end,
+      children: [
+        Container(
+          padding: EdgeInsetsDirectional.only(end: 15.0,top: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                    padding: EdgeInsetsDirectional.zero,
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.more_horiz_rounded,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '${usersFour.name}',
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Icon(
+                                Icons.public_rounded,
+                                color: Colors.grey[700],
+                                size: 16,
+                              ),
+                            ),
+                            Text(
+                              '${usersFour.date}',
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(start: 15),
+                    child: Align(
+                      alignment: AlignmentDirectional.topEnd,
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.blue,
+                          border: Border.all(
+                            color: primaryColor,
+                            width: 2.3,
+                          ),
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                '${usersFour.url}',
+                              ),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                '${usersFour.post??''}',
+                textDirection: TextDirection.rtl,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          height: 350,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: OpenContainer(
+                          transitionDuration: Duration(seconds: 1),
+                          transitionType: ContainerTransitionType.fadeThrough,
+                          openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                            moveToIndex(0).catchError((onError){});
+                            return Container(
+                              color: Colors.white,
+                              child: SafeArea(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.only(top: 10),
+                                  child: ScrollablePositionedList.builder(
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: 29,
+                                    itemScrollController: itemScrollController,
+                                    itemBuilder: (context , index){
+                                      return selectItem[index];
+                                    },
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          closedBuilder: (BuildContext context, void Function() action) {
+                            return selectItem[6];
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        width: 3,
+                      ),
+                      Expanded(
+                        child: OpenContainer(
+                          transitionDuration: Duration(seconds: 1),
+                          transitionType: ContainerTransitionType.fadeThrough,
+                          openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                            moveToIndex(7).catchError((onError){});
+                            return Container(
+                              color: Colors.white,
+                              child: SafeArea(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.only(top: 10),
+                                  child: ScrollablePositionedList.builder(
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: 29,
+                                    itemScrollController: itemScrollController,
+                                    itemBuilder: (context , index){
+                                      return selectItem[index];
+                                    },
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          closedBuilder: (BuildContext context, void Function() action) {
+                            return selectItem[12];
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 3,
+              ),
+              Expanded(
+                child: Container(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: OpenContainer(
+                          transitionDuration: Duration(seconds: 1),
+                          transitionType: ContainerTransitionType.fadeThrough,
+                          openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                            moveToIndex(13).catchError((onError){});
+                            return Container(
+                              color: Colors.white,
+                              child: SafeArea(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.only(top: 10),
+                                  child: ScrollablePositionedList.builder(
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: 29,
+                                    itemScrollController: itemScrollController,
+                                    itemBuilder: (context , index){
+                                      return selectItem[index];
+                                    },
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          closedBuilder: (BuildContext context, void Function() action) {
+                            return selectItem[18];
+                          },
+                        ),
+                      ),
+                      SizedBox(
+                        width: 3,
+                      ),
+                      Expanded(
+                        child: OpenContainer(
+                          transitionDuration: Duration(seconds: 1),
+                          transitionType: ContainerTransitionType.fadeThrough,
+                          openBuilder: (BuildContext context, void Function({Object? returnValue}) action) {
+                            moveToIndex(19).catchError((onError){});
+                            return Container(
+                              color: Colors.white,
+                              child: SafeArea(
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.only(top: 10),
+                                  child: ScrollablePositionedList.builder(
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: 29,
+                                    itemScrollController: itemScrollController,
+                                    itemBuilder: (context , index){
+                                      return selectItem[index];
+                                    },
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          closedBuilder: (BuildContext context, void Function() action) {
+                            return selectItem[24];
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Container(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      '${usersFour.share_count}',
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '${usersFour.comment_count}',
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 20,
+
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          alignment: WrapAlignment.end,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(
+                              '${usersFour.like_count}',
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Stack(
+                              children: [
+                                Container(
+                                  width: 55,
+                                  height: 20,
+                                ),
+                                PositionedDirectional(
+                                  end: 0,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5),
+                                        borderRadius: BorderRadius.circular(18)),
+                                    child: SvgPicture.asset(
+                                      '${usersFour.first_rect}',
+                                    ),
+                                  ),
+                                ),
+                                PositionedDirectional(
+                                  end: 16,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5),
+                                        borderRadius: BorderRadius.circular(18)),
+                                    child: SvgPicture.asset(
+                                      '${usersFour.second_rect}',
+                                    ),
+                                  ),
+                                ),
+                                PositionedDirectional(
+                                  end: 32,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors.white, width: 1.5),
+                                        borderRadius: BorderRadius.circular(18)),
+                                    child: SvgPicture.asset(
+                                      '${usersFour.thirty_rect}',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'مشاركة',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Icon(
+                              CustomIcons
+                                  .arrow_curved_to_the_left_svgrepo_com,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'تعليق',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Icon(
+                              CustomIcons.comment_svgrepo_com,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'أعجبنى',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Icon(
+                              CustomIcons.like_svgrepo_com,
+                              color: Colors.grey,
+                              size: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
 }
 
 
