@@ -66,7 +66,7 @@ class HomeCubit extends Cubit<HomeStates>{
 
     ),
     LocalData(
-      name: 'asdasdfasdsdasda',
+      name: 'salama',
       url:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
       message: 'asdasdasdasdasdasdds',
@@ -198,11 +198,11 @@ class HomeCubit extends Cubit<HomeStates>{
     LocalData(
       name: 'Sara ahmed',
       message: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-      url: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60',
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRXs4XLutykcrFtsalR7IDFbn2iy53MB6dpg&usqp=CAU',
       story: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
       post: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
       post_image: 'https://img5.goodfon.com/wallpaper/nbig/2/ac/abstract-background-colorful-rounded-shapes-abstraktsiia-fon.jpg',
-      two_post_image: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
+      two_post_image: 'https://w0.peakpx.com/wallpaper/887/576/HD-wallpaper-clock-minimal-creative-blue-background-creative-clock.jpg',
       three_post_image: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
       four_post_image: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
       date: 'أمس الساعة${arabicNumber.convert(03)}:${arabicNumber.convert(54)}م',
@@ -218,9 +218,9 @@ class HomeCubit extends Cubit<HomeStates>{
 
   final List<LocalData> person_two = [
     LocalData(
-      name: 'Machiel',
+      name: 'salama',
       message: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
-      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb8K3r8wnRGKL-taFuE8Pz6nf7XvsD8aOWGA&usqp=CAU',
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiipzUG3KoBS7uiWIx9M7Z-VUTdT0w-Cn-g&usqp=CAU',
       story: 'https://i.pinimg.com/originals/03/32/2e/03322eae80f035d972d64ca3bd1c38cc.jpg',
       post: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout',
       post_image: 'https://wallpaperaccess.com/full/1968299.jpg',
