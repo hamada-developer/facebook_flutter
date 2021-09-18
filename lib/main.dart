@@ -8,6 +8,7 @@ import 'package:facebook/shared/components/constant.dart';
 import 'package:facebook/shared/style/color.dart';
 import 'package:facebook/shared/style/custom_icons_icons.dart';
 import 'package:facebook/shared/style/icon_broken.dart';
+import 'package:facebook/shared/style/theme.dart';
 import 'package:facebook/web/modul/login/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -26,42 +27,27 @@ main() async {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
-  TabController? tabController;
-  ScrollController? scrollController;
-
-  @override
-  void initState() {
-    super.initState();
-    tabController = TabController(vsync: this, length: 2, initialIndex: 0);
-    scrollController = ScrollController();
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (BuildContext context) => LoginCubit(),
-        ),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: ConditionalBuilder(
-          condition: kIsWeb,
-          builder: (context) {
-            return LoginScreenWeb();
-          },
-          fallback: (context) {
-            return LoginScreen();
-          },
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+      statusBarColor: secondaryColor,
+      systemNavigationBarColor: Colors.white,
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarIconBrightness:Brightness.dark,
+      ),
+      child: BlocProvider(
+        create: (BuildContext context) => LoginCubit(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: lightTheme(),
+          themeMode: ThemeMode.light,
+          home: ConditionalBuilder(
+            condition: kIsWeb,
+            builder: (context) =>LoginScreenWeb(),
+            fallback: (context) =>LoginScreen(),
+          ),
         ),
       ),
     );

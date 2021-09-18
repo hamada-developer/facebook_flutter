@@ -3,12 +3,16 @@ class UserModel {
   String? email;
   String? phone;
   String? uId;
+  String? url_image;
+  String? bio;
 
   UserModel({
     required this.name,
     required this.email,
     required this.phone,
     required this.uId,
+    this.url_image,
+    this.bio,
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {

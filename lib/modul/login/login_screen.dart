@@ -2,25 +2,32 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:facebook/layout/home/home_screen.dart';
 import 'package:facebook/modul/login/login_cubit/login_cubit.dart';
 import 'package:facebook/modul/login/login_cubit/login_states.dart';
-import 'package:facebook/modul/register/register_screen.dart';
+import 'package:facebook/modul/register/register_screen_1.dart';
 import 'package:facebook/shared/components/component.dart';
+import 'package:facebook/shared/components/constant.dart';
 import 'package:facebook/shared/style/color.dart';
-import 'package:flutter/foundation.dart';
+import 'package:facebook/shared/style/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
     return BlocConsumer<LoginCubit, LoginStates>(
       listener: (context, state) {
-        if (state is LoginSuccessState) {
+        if (state is LoginSuccessState)
           navigateAndFinish(context: context, widget: HomeScreen());
-        }
       },
       builder: (context, state) {
         var loginCubit = LoginCubit.get(context);
@@ -29,10 +36,10 @@ class LoginScreen extends StatelessWidget {
             body: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: double.infinity,
                   ),
-                  Image(
+                  const Image(
                     image: AssetImage(
                       'assets/images/login.jpeg',
                     ),
@@ -45,23 +52,23 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextButton(
-                            onPressed: () {},
-                            child: Text('...المزيد'),
+                            onPressed: () => print('المزيد'),
+                            child: const Text('...المزيد'),
                           ),
                           InkWell(
-                            onTap: () {},
-                            child: Text('English'),
+                            onTap: () => print('English'),
+                            child: const Text('English'),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
                           InkWell(
-                            onTap: () {},
-                            child: Text('Francais'),
+                            onTap: () => print('Francais'),
+                            child: const Text('Francais'),
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Padding(
@@ -88,49 +95,41 @@ class LoginScreen extends StatelessWidget {
                                 onPressed: () {
                                   loginCubit.toggleObscure();
                                 },
-                                icon: Icon(
-                                  Icons.remove_red_eye,
-                                ),
+                                icon: loginCubit.isHide
+                                    ? Icon(
+                                        IconBroken.Show,
+                                      )
+                                    : Icon(
+                                        IconBroken.Hide,
+                                      ),
                               ),
                               isHide: loginCubit.isHide,
                             ),
                             ConditionalBuilder(
                               condition: state is! LoginLoadingState,
-                              builder: (context) => Container(
-                                padding: EdgeInsetsDirectional.only(top: 12.0),
-                                width: double.infinity,
-                                child: MaterialButton(
-                                  onPressed: () {
-                                    loginCubit.loginWithEmail(
-                                      email: emailController.text,
-                                      password: passwordController.text,
-                                    );
-                                  },
-                                  child: Text(
-                                    'تسجيل الدخول',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  color: primaryColor,
+                              builder: (context) => DefaultButton(
+                                text: 'تسجيل الدخول',
+                                onPressed: () => loginCubit.loginWithEmail(
+                                  email: emailController.text,
+                                  password: passwordController.text,
                                 ),
                               ),
-                              fallback: (context) => Padding(
+                              fallback: (context) => const Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: CircularProgressIndicator(),
+                                child: const CircularProgressIndicator(),
                               ),
                             ),
                             TextButton(
-                              onPressed: () {},
-                              child: Text(
+                              onPressed: () => print('هل نسيت كلمة السر؟'),
+                              child: const Text(
                                 'هل نسيت كلمة السر؟',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: primaryColor,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 60.0,
                             ),
                             Row(
@@ -141,12 +140,12 @@ class LoginScreen extends StatelessWidget {
                                     color: Colors.grey,
                                   ),
                                 ),
-                                Padding(
+                                const Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 8.0),
-                                  child: Text(
+                                  child: const Text(
                                     'أو',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.grey,
                                     ),
                                   ),
@@ -159,26 +158,17 @@ class LoginScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 60.0,
                             ),
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 60.0),
-                              width: double.infinity,
-                              child: MaterialButton(
-                                onPressed: () {
-                                  navigateTo(
-                                      context: context,
-                                      widget: RegisterScreen());
-                                },
-                                child: Text(
-                                  'أنشاء حساب جديد على فيسبوك',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                color: color2,
+                            DefaultButton(
+                              onPressed: () => navigateTo(
+                                context: context,
+                                widget: const RegisterScreenOne(),
                               ),
+                              text: 'أنشاء حساب جديد على فيسبوك',
+                              background: greenButton,
+                              paddingHorizontal: 60,
                             ),
                           ],
                         ),
@@ -193,6 +183,11 @@ class LoginScreen extends StatelessWidget {
       },
     );
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
 }
-
-

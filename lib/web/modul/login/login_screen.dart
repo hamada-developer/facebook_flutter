@@ -2,7 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:facebook/layout/home/home_screen.dart';
 import 'package:facebook/modul/login/login_cubit/login_cubit.dart';
 import 'package:facebook/modul/login/login_cubit/login_states.dart';
-import 'package:facebook/modul/register/register_screen.dart';
+import 'package:facebook/modul/register/register_screen_1.dart';
 import 'package:facebook/shared/components/component.dart';
 import 'package:facebook/shared/style/color.dart';
 import 'package:facebook/web/layout/app_layout.dart';

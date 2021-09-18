@@ -7,7 +7,7 @@ import 'login_states.dart';
 class LoginCubit extends Cubit<LoginStates> {
   LoginCubit() : super(InitialLoginState());
   Widget? prefixIcon;
-  bool isHide = false;
+  bool isHide = true;
   FirebaseAuth auth = FirebaseAuth.instance;
 
   static LoginCubit get(context) => BlocProvider.of(context);
