@@ -30,24 +30,16 @@ main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
-      statusBarColor: secondaryColor,
-      systemNavigationBarColor: Colors.white,
-      statusBarIconBrightness: Brightness.light,
-      systemNavigationBarIconBrightness:Brightness.dark,
-      ),
-      child: BlocProvider(
-        create: (BuildContext context) => LoginCubit(),
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: lightTheme(),
-          themeMode: ThemeMode.light,
-          home: ConditionalBuilder(
-            condition: kIsWeb,
-            builder: (context) =>LoginScreenWeb(),
-            fallback: (context) =>LoginScreen(),
-          ),
+    return BlocProvider(
+      create: (BuildContext context) => LoginCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: lightTheme(),
+        themeMode: ThemeMode.light,
+        home: ConditionalBuilder(
+          condition: kIsWeb,
+          builder: (context) =>LoginScreenWeb(),
+          fallback: (context) =>LoginScreen(),
         ),
       ),
     );
