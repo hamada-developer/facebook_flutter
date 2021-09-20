@@ -8,12 +8,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'layout_cubit/layout_cubit.dart';
 import 'layout_cubit/layout_states.dart';
 
-class HomeScreen extends StatefulWidget {
+class LayoutTopBar extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _LayoutTopBarState createState() => _LayoutTopBarState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _LayoutTopBarState extends State<LayoutTopBar> with SingleTickerProviderStateMixin {
   TabController? tabController;
   ScrollController? _scrollController;
 
