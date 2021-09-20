@@ -1,17 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:facebook/model/local_data.dart';
 import 'package:facebook/shared/components/constant.dart';
-import 'package:facebook/shared/style/color.dart';
-import 'package:facebook/shared/style/custom_icons_icons.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
+import 'layout_states.dart';
 
-import 'home_states.dart';
-
-class HomeCubit extends Cubit<HomeStates>{
-
-
+class LayoutCubit extends Cubit<LayoutStates>{
 
   final List<LocalData> persons = [
     LocalData(
@@ -438,6 +431,6 @@ class HomeCubit extends Cubit<HomeStates>{
 
     ),
   ];
-  HomeCubit (): super(InitialHomeState());
-  static HomeCubit get(context) => BlocProvider.of(context);
+  LayoutCubit (): super(InitialLayoutState());
+  static LayoutCubit get(context) => BlocProvider.of(context);
 }

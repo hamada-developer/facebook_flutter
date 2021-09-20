@@ -4,6 +4,8 @@ import 'package:facebook/shared/style/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+
+final String Users = 'Users';
 editStatusBar({
   Color color = secondaryColor,
   Brightness iconColor = Brightness.light,

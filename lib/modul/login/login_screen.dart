@@ -1,5 +1,5 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:facebook/layout/home/home_screen.dart';
+import 'package:facebook/layout/home/home_layout.dart';
 import 'package:facebook/modul/login/login_cubit/login_cubit.dart';
 import 'package:facebook/modul/login/login_cubit/login_states.dart';
 import 'package:facebook/modul/register/register_screen_1.dart';

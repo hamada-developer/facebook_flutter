@@ -1,6 +1,5 @@
-import 'package:facebook/layout/home/home_cubit/home_cubit.dart';
-import 'package:facebook/layout/home/home_cubit/home_states.dart';
-import 'package:facebook/modul/home_page/home_page_screen.dart';
+import 'package:facebook/layout/home/layout_cubit/layout_cubit.dart';
+import 'package:facebook/layout/home/layout_cubit/layout_states.dart';
 import 'package:facebook/shared/style/color.dart';
 import 'package:facebook/shared/style/custom_icons_icons.dart';
 import 'package:facebook/shared/style/icon_broken.dart';
@@ -8,7 +7,6 @@ import 'package:facebook/web/modul/home_page/home_page_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class AppLayout extends StatefulWidget {
   @override
@@ -30,9 +28,9 @@ class _AppLayoutState extends State<AppLayout> with SingleTickerProviderStateMix
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        return HomeCubit();
+        return LayoutCubit();
       },
-      child: BlocConsumer<HomeCubit, HomeStates>(
+      child: BlocConsumer<LayoutCubit, LayoutStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(

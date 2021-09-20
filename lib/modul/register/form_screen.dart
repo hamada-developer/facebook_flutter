@@ -1,4 +1,4 @@
-import 'package:facebook/layout/home/home_screen.dart';
+import 'package:facebook/layout/home/home_layout.dart';
 import 'package:facebook/modul/register/register_cubit/register_cubit.dart';
 import 'package:facebook/modul/register/register_cubit/register_states.dart';
 import 'package:facebook/shared/components/component.dart';

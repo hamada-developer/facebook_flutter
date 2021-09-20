@@ -1,11 +1,8 @@
 import 'dart:math';
-
 import 'package:animations/animations.dart';
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:facebook/layout/home/home_cubit/home_cubit.dart';
-import 'package:facebook/layout/home/home_cubit/home_states.dart';
+import 'package:facebook/layout/home/layout_cubit/layout_cubit.dart';
+import 'package:facebook/layout/home/layout_cubit/layout_states.dart';
 import 'package:facebook/model/local_data.dart';
-import 'package:facebook/modul/posts/post_five.dart';
 import 'package:facebook/shared/components/component.dart';
 import 'package:facebook/shared/components/constant.dart';
 import 'package:facebook/shared/style/color.dart';
@@ -13,10 +10,8 @@ import 'package:facebook/shared/style/custom_icons_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:stack_percentage/stack_percentage.dart';
-import 'package:page_transition/page_transition.dart';
 
 class HomePageScreen extends StatelessWidget {
 
@@ -111,11 +106,11 @@ class HomePageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     editStatusBar(color: Colors.white , iconColor: Brightness.dark);
-    return BlocConsumer<HomeCubit, HomeStates>(
+    return BlocConsumer<LayoutCubit, LayoutStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        List<LocalData> users = HomeCubit.get(context).persons;
-        List<LocalData> posts = HomeCubit.get(context).posts;
+        List<LocalData> users = LayoutCubit.get(context).persons;
+        List<LocalData> posts = LayoutCubit.get(context).posts;
         return Container(
           color: Colors.grey[400],
           child: SingleChildScrollView(
