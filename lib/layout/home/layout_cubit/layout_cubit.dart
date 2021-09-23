@@ -441,12 +441,12 @@ class LayoutCubit extends Cubit<LayoutStates>{
   void changeExpansionHelp(bool isOpenedHelp) {
     this.isOpenedHelp = isOpenedHelp;
     if(isOpenedHelp){
-      scrollController.animateTo(700,
+      scrollController.animateTo(586,
           duration: Duration(milliseconds: 500), curve: Curves.linear);
     }
     else{
-      scrollController.animateTo(scrollController.position.maxScrollExtent,
-          duration: Duration(milliseconds: 500), curve: Curves.linear);
+      scrollController.animateTo(400,
+          duration: Duration(milliseconds: 100), curve: Curves.linear);
     }
     emit(ChangeExpansionState());
   }
@@ -454,12 +454,13 @@ class LayoutCubit extends Cubit<LayoutStates>{
   void changeExpansionSetting(bool isOpenedSetting) {
     this.isOpenedSetting = isOpenedSetting;
     if(isOpenedSetting){
-      scrollController.animateTo(700,
-          duration: Duration(milliseconds: 500), curve: Curves.linear);
+      scrollController.animateTo(scrollController.position.maxScrollExtent + 62,
+          duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
     else{
-      scrollController.animateTo(scrollController.position.maxScrollExtent,
-          duration: Duration(milliseconds: 500), curve: Curves.linear);
+      print(scrollController.position.maxScrollExtent);
+      scrollController.animateTo(scrollController.position.maxScrollExtent - 62,
+          duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
     emit(ChangeExpansionState());
   }
