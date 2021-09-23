@@ -1,10 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:facebook/model/local_data.dart';
 import 'package:facebook/shared/components/constant.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'layout_states.dart';
 
 class LayoutCubit extends Cubit<LayoutStates>{
+  bool isOpenedHelp = false;
+  bool isOpenedSetting = false;
+  ScrollController scrollController = ScrollController();
 
   final List<LocalData> persons = [
     LocalData(
@@ -433,4 +437,30 @@ class LayoutCubit extends Cubit<LayoutStates>{
   ];
   LayoutCubit (): super(InitialLayoutState());
   static LayoutCubit get(context) => BlocProvider.of(context);
+
+  void changeExpansionHelp(bool isOpenedHelp) {
+    this.isOpenedHelp = isOpenedHelp;
+    if(isOpenedHelp){
+      scrollController.animateTo(700,
+          duration: Duration(milliseconds: 500), curve: Curves.linear);
+    }
+    else{
+      scrollController.animateTo(scrollController.position.maxScrollExtent,
+          duration: Duration(milliseconds: 500), curve: Curves.linear);
+    }
+    emit(ChangeExpansionState());
+  }
+
+  void changeExpansionSetting(bool isOpenedSetting) {
+    this.isOpenedSetting = isOpenedSetting;
+    if(isOpenedSetting){
+      scrollController.animateTo(700,
+          duration: Duration(milliseconds: 500), curve: Curves.linear);
+    }
+    else{
+      scrollController.animateTo(scrollController.position.maxScrollExtent,
+          duration: Duration(milliseconds: 500), curve: Curves.linear);
+    }
+    emit(ChangeExpansionState());
+  }
 }

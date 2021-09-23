@@ -1,4 +1,5 @@
 import 'package:facebook/modul/home_page/home_page_screen.dart';
+import 'package:facebook/modul/menu/menu_screen.dart';
 import 'package:facebook/shared/style/color.dart';
 import 'package:facebook/shared/style/custom_icons_icons.dart';
 import 'package:facebook/shared/style/icon_broken.dart';
@@ -24,7 +25,6 @@ class _LayoutTopBarState extends State<LayoutTopBar> with SingleTickerProviderSt
     _scrollController =ScrollController();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -35,6 +35,7 @@ class _LayoutTopBarState extends State<LayoutTopBar> with SingleTickerProviderSt
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
+            backgroundColor: Colors.grey[100],
             body: NestedScrollView(
               controller: _scrollController,
               floatHeaderSlivers: true,
@@ -145,10 +146,7 @@ class _LayoutTopBarState extends State<LayoutTopBar> with SingleTickerProviderSt
               body: TabBarView(
                 controller: tabController,
                 children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: Text('hello'),
-                  ),
+                  MenuScreen(),
                   TextButton(
                     onPressed: () {},
                     child: Text('hello'),
