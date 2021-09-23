@@ -1,23 +1,20 @@
 import 'package:facebook/modul/home_page/home_page_screen.dart';
-import 'package:facebook/shared/components/constant.dart';
+import 'package:facebook/modul/menu/menu_screen.dart';
 import 'package:facebook/shared/style/color.dart';
 import 'package:facebook/shared/style/custom_icons_icons.dart';
 import 'package:facebook/shared/style/icon_broken.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'layout_cubit/layout_cubit.dart';
+import 'layout_cubit/layout_states.dart';
 
-import 'home_cubit/home_cubit.dart';
-import 'home_cubit/home_states.dart';
-
-class HomeScreen extends StatefulWidget {
+class LayoutTopBar extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _LayoutTopBarState createState() => _LayoutTopBarState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _LayoutTopBarState extends State<LayoutTopBar> with SingleTickerProviderStateMixin {
   TabController? tabController;
   ScrollController? _scrollController;
 
@@ -28,50 +25,17 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     _scrollController =ScrollController();
   }
 
-  final List<Widget> icons = [
-    Icon(
-      Icons.home_rounded,
-      size: 35,
-    ),
-    Icon(
-      Icons.home_rounded,
-      size: 35,
-    ),
-    Icon(
-      Icons.home_rounded,
-      size: 35,
-    ),
-    Icon(
-      Icons.ondemand_video_rounded,
-      size: 28,
-    ),
-    Container(
-      height: 28,
-      width: 28,
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(25)),
-      child: SvgPicture.asset(
-        'assets/icons/account_group.svg',
-        color: Colors.blue,
-      ),
-    ),
-    Icon(
-      Icons.home_rounded,
-      size: 28,
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        return HomeCubit();
+        return LayoutCubit();
       },
-      child: BlocConsumer<HomeCubit, HomeStates>(
+      child: BlocConsumer<LayoutCubit, LayoutStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
+            backgroundColor: Colors.grey[100],
             body: NestedScrollView(
               controller: _scrollController,
               floatHeaderSlivers: true,
@@ -182,10 +146,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               body: TabBarView(
                 controller: tabController,
                 children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: Text('hello'),
-                  ),
+                  MenuScreen(),
                   TextButton(
                     onPressed: () {},
                     child: Text('hello'),
@@ -210,5 +171,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    tabController!.dispose();
+    _scrollController!.dispose();
   }
 }

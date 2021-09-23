@@ -1,5 +1,5 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:facebook/layout/home/home_screen.dart';
+import 'package:facebook/layout/home/layout_top_bar.dart';
 import 'package:facebook/modul/login/login_cubit/login_cubit.dart';
 import 'package:facebook/modul/login/login_cubit/login_states.dart';
 import 'package:facebook/modul/register/register_screen_1.dart';
@@ -23,11 +23,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-
+    editStatusBar(color: secondaryColor);
     return BlocConsumer<LoginCubit, LoginStates>(
       listener: (context, state) {
         if (state is LoginSuccessState)
-          navigateAndFinish(context: context, widget: HomeScreen());
+          navigateAndFinish(context: context, widget: LayoutTopBar());
       },
       builder: (context, state) {
         var loginCubit = LoginCubit.get(context);

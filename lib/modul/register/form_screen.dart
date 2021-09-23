@@ -1,4 +1,4 @@
-import 'package:facebook/layout/home/home_screen.dart';
+import 'package:facebook/layout/home/layout_top_bar.dart';
 import 'package:facebook/modul/register/register_cubit/register_cubit.dart';
 import 'package:facebook/modul/register/register_cubit/register_states.dart';
 import 'package:facebook/shared/components/component.dart';
@@ -19,7 +19,7 @@ class FormScreen extends StatelessWidget {
       child: BlocConsumer<RegisterCubit , RegisterStates>(
         listener: (context , state ){
           if(state is RegisterSuccessState){
-            navigateAndFinish(context: context , widget: HomeScreen());
+            navigateAndFinish(context: context , widget: LayoutTopBar());
           }
         },
         builder: (context , state ){
