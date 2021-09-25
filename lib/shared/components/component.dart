@@ -1,7 +1,13 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:facebook/layout/home/layout_cubit/layout_cubit.dart';
+import 'package:facebook/layout/home/layout_cubit/layout_states.dart';
 import 'package:facebook/model/local_data.dart';
 import 'package:facebook/shared/style/color.dart';
 import 'package:facebook/shared/style/custom_icons_icons.dart';
+import 'package:facebook/shared/style/like_fill_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_reaction_button/flutter_reaction_button.dart';
 import 'package:flutter_svg/svg.dart';
 
 // TextFormField for app
@@ -334,12 +340,179 @@ class RowReactions extends StatelessWidget {
   }
 }
 
+
+class BuildReactionsIcon extends StatelessWidget {
+
+  final String text;
+  final String? iconSvg;
+  final String? iconPng;
+  final IconData? iconTtf;
+  final Color color;
+  const BuildReactionsIcon({
+    Key? key,
+    required this.text,
+    required this.color,
+    this.iconSvg,
+    this.iconPng,
+    this.iconTtf,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.transparent,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            '$text',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: color,
+            ),
+          ),
+          const SizedBox(width: 10),
+          ConditionalBuilder(
+            condition: this.iconSvg != null,
+            builder: (_)=> SvgPicture.asset(
+              iconSvg!,
+              height: 20,
+            ),
+            fallback: (_)=>ConditionalBuilder(
+              condition: this.iconPng != null,
+              builder: (_)=> Image.asset(iconPng!, height: 20),
+              fallback: (_)=> Icon(
+                iconTtf!,
+                color: color,
+                size: 20,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class BuildReactionsPreviewIcon extends StatelessWidget {
+  final String? iconSvg;
+  final String? iconPng;
+  final IconData? iconTtf;
+
+  const BuildReactionsPreviewIcon({
+    Key? key,
+    this.iconSvg,
+    this.iconPng,
+    this.iconTtf,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 3.5,
+        vertical: 5,
+      ),
+      child: ConditionalBuilder(
+        condition: this.iconSvg != null,
+        builder: (_) => SvgPicture.asset(
+          iconSvg!,
+          height: 40,
+        ),
+        fallback: (_) => Image.asset(
+          iconPng!,
+          height: 40,
+        ),
+      ),
+    );
+  }
+}
+
 //Special {Buttons share,comment, ike}
 class RowButtons extends StatelessWidget {
 
+
+  final List<Reaction> defaultInitialReaction = [
+    Reaction(
+      icon: BuildReactionsIcon(
+        text: 'أعجبنى',
+        color: Colors.grey,
+        iconTtf: CustomIcons.like_svgrepo_com,
+      ),
+    ),
+    Reaction(
+      icon: BuildReactionsIcon(
+        text: 'أعجبنى',
+        color: primaryColor,
+        iconTtf: LikeFill.like,
+      ),
+    ),
+  ];
+
+  final reactions = [
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconPng: 'assets/images/facebook_angry_2.png'),
+      icon: BuildReactionsIcon(
+        iconPng: 'assets/images/facebook_angry_2.png',
+        text: 'أغضبني',
+        color: Color(0XFFFF4F2C),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_sad.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/facebook_sad.svg',
+        text: 'أحزنني',
+        color: Color(0XFFFEBE44),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_wow.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/facebook_wow.svg',
+        text: 'واااو',
+        color: Color(0XFFFEBD42),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_haha.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/facebook_haha.svg',
+        text: 'هاهاها',
+        color: Color(0XFFffda6b),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/care.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/care.svg',
+        text: 'أدعمه',
+        color: Color(0XFFffda6b),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_love.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/facebook_love.svg',
+        text: 'أحببته',
+        color: Color(0XFFf05766),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(
+        iconSvg: 'assets/icons/facebook_like.svg',
+      ),
+      icon: BuildReactionsIcon(
+        text: 'أعجبنى',
+        color: primaryColor,
+        iconTtf: LikeFill.like,
+      ),
+    ),
+  ];
+
   final Color background;
   final Color color;
-  const RowButtons({
+   RowButtons({
     Key? key,
     this.background = Colors.white,
     this.color = Colors.grey
@@ -347,103 +520,85 @@ class RowButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        children: [
-          Expanded(
-            child: Container(
-              height: 30,
-              child: Material(
-                color: background,
-                child: InkWell(
-                  onTap: () {
-                    print('مشاركة');
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'مشاركة',
-                        style: TextStyle(
-                          color: color,
-                          fontWeight: FontWeight.w600,
-                        ),
+    return BlocConsumer<LayoutCubit,LayoutStates>(
+      listener: (_, state){},
+      builder: (_, state){
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: Container(
+                  height: 30,
+                  child: Material(
+                    color: background,
+                    child: InkWell(
+                      onTap: () {
+                        print('مشاركة');
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'مشاركة',
+                            style: TextStyle(
+                              color: color,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Icon(
+                            CustomIcons.arrow_curved_to_the_left_svgrepo_com,
+                            color: color,
+                          ),
+                        ],
                       ),
-                      Icon(
-                        CustomIcons.arrow_curved_to_the_left_svgrepo_com,
-                        color: color,
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              height: 30,
-              child: Material(
-                color: background,
-                child: InkWell(
-                  onTap: () {
-                    print('تعليق');
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'تعليق',
-                        style: TextStyle(
-                          color: color,
-                          fontWeight: FontWeight.w600,
-                        ),
+              Expanded(
+                child: Container(
+                  height: 30,
+                  child: Material(
+                    color: background,
+                    child: InkWell(
+                      onTap: () {
+                        print('تعليق');
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'تعليق',
+                            style: TextStyle(
+                              color: color,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          Icon(
+                            CustomIcons.comment_svgrepo_com,
+                            color: color,
+                          ),
+                        ],
                       ),
-                      Icon(
-                        CustomIcons.comment_svgrepo_com,
-                        color: color,
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              height: 30,
-              child: Material(
-                color: background,
-                child: InkWell(
-                  onTap: () {
-                    print('أعجبنى');
+              Expanded(
+                child: FlutterReactionButtonCheck(
+                  onReactionChanged: (reaction, index, isChecked) {
+                    print('reaction selected index: $index');
                   },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'أعجبنى',
-                        style: TextStyle(
-                          color: color,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Icon(
-                        CustomIcons.like_svgrepo_com,
-                        color: color,
-                        size: 20,
-                      ),
-                    ],
-                  ),
+                  reactions: reactions,
+                  initialReaction: defaultInitialReaction[0],
+                  selectedReaction: defaultInitialReaction[1],
                 ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

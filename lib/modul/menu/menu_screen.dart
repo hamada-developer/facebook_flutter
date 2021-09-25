@@ -4,6 +4,7 @@ import 'package:facebook/layout/home/layout_cubit/layout_cubit.dart';
 import 'package:facebook/layout/home/layout_cubit/layout_states.dart';
 import 'package:facebook/model/local_data.dart';
 import 'package:facebook/model/menu_,model.dart';
+import 'package:facebook/modul/profile/profile_screen.dart';
 import 'package:facebook/shared/style/icon_broken.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -251,49 +252,71 @@ class MenuScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            '${postData[0].name}',
-                            textAlign: TextAlign.end,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'عرض ملفك الشخصى',
-                            textAlign: TextAlign.end,
-                            style: TextStyle(
-                              fontSize: 13,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                '${postData[0].url}',
-                              ),
-                              fit: BoxFit.cover),
+                Container(
+                  height: 55,
+                  child: MaterialButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (BuildContext context,
+                                  Animation<double> animation,
+                                  Animation<double> secondaryAnimation) =>
+                              ProfileScreen(),
+                          transitionsBuilder:(context, animation, secondaryAnimation, child) {
+                            const begin = Offset(1.0, 0.0);
+                            const end = Offset.zero;
+                            final tween = Tween(begin: begin, end: end);
+                            final offsetAnimation = animation.drive(tween);
+                            return SlideTransition(
+                              position: offsetAnimation,
+                              child: child,
+                            );
+                          },
                         ),
-                      ),
-                    ],
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              '${postData[0].name}',
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'عرض ملفك الشخصى',
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                fontSize: 13,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                  '${postData[0].url}',
+                                ),
+                                fit: BoxFit.cover),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 StaggeredGridView.countBuilder(
@@ -545,42 +568,3 @@ class MenuScreen extends StatelessWidget {
   }
 }
 
-
-Widget w(){
-  return Column(
-    children: [
-      Container(
-        height: 1,
-        width: double.infinity,
-        color: Colors.grey[300],
-      ),
-      Container(
-        height: 45.0,
-        child: Row(
-          children: [
-            Spacer(),
-            Text(
-              'الإعدادات والخصوصية',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
-        ),
-      ),
-      Container(
-        width: double.infinity,
-        child: MaterialButton(
-          elevation: 0.0,
-          onPressed: () {},
-          child: Text(
-            'تسجيل الخروج',
-          ),
-          color: Colors.grey[200],
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(6)),
-        ),
-      ),
-    ],
-  );
-}

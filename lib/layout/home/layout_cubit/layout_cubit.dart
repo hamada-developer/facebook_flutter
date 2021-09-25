@@ -8,6 +8,11 @@ import 'layout_states.dart';
 class LayoutCubit extends Cubit<LayoutStates>{
   bool isOpenedHelp = false;
   bool isOpenedSetting = false;
+  bool isLong = false;
+  void changeLong(isLong){
+    this.isLong = isLong;
+    emit(ChangeLong());
+  }
   ScrollController scrollController = ScrollController();
 
   final List<LocalData> persons = [
@@ -441,7 +446,7 @@ class LayoutCubit extends Cubit<LayoutStates>{
   void changeExpansionHelp(bool isOpenedHelp) {
     this.isOpenedHelp = isOpenedHelp;
     if(isOpenedHelp){
-      scrollController.animateTo(586,
+      scrollController.animateTo(565,
           duration: Duration(milliseconds: 500), curve: Curves.linear);
     }
     else{

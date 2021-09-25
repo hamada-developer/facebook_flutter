@@ -3,6 +3,8 @@ import 'package:animations/animations.dart';
 import 'package:facebook/layout/home/layout_cubit/layout_cubit.dart';
 import 'package:facebook/layout/home/layout_cubit/layout_states.dart';
 import 'package:facebook/model/local_data.dart';
+import 'package:facebook/pack/data/example_data.dart';
+import 'package:facebook/pack/items/item.dart';
 import 'package:facebook/shared/components/component.dart';
 import 'package:facebook/shared/components/constant.dart';
 import 'package:facebook/shared/style/color.dart';
@@ -439,6 +441,11 @@ class HomePageScreen extends StatelessWidget {
                       itemCount: posts.length,
                     ),
                   ],
+                ),
+                Item(
+                  'image 1',
+                  'assets/images/wel.jpg',
+                  reactions,
                 ),
               ],
             ),
