@@ -192,7 +192,6 @@ class LayoutCubit extends Cubit<LayoutStates>{
       first_rect: 'assets/icons/facebook_love.svg',
       second_rect: 'assets/icons/care.svg',
       thirty_rect: 'assets/icons/facebook_like.svg',
-
     ),
     LocalData(
       name: 'salama',
@@ -468,5 +467,14 @@ class LayoutCubit extends Cubit<LayoutStates>{
           duration: Duration(milliseconds: 300), curve: Curves.linear);
     }
     emit(ChangeExpansionState());
+  }
+
+  void changeReactions({
+    required React react,
+    required LocalData postData,
+}){
+    // posts[index].rect = react;
+    postData.rect = react;
+    emit(ChangeReactionsState());
   }
 }

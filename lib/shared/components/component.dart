@@ -207,10 +207,12 @@ class MoreOptionPost extends StatelessWidget {
 // {counter share,like,Reactions and post buttons}
 class ReactPost extends StatelessWidget {
 
-  final LocalData post;
-  const ReactPost({
+  final LocalData postData;
+  LayoutCubit layoutCubit;
+  ReactPost({
     Key? key,
-    required this.post,
+    required this.postData,
+    required this.layoutCubit,
   }) : super(key: key);
 
   @override
@@ -225,8 +227,8 @@ class ReactPost extends StatelessWidget {
             const SizedBox(
               height: 12.0,
             ),
-            RowReactions( postData: post,),
-            RowButtons(),
+            RowReactions( postData: postData,),
+            RowButtons(layoutCubit: layoutCubit, postData: postData,),
           ],
         ),
       ),
@@ -430,9 +432,21 @@ class BuildReactionsPreviewIcon extends StatelessWidget {
 
 //Special {Buttons share,comment, ike}
 class RowButtons extends StatelessWidget {
-
+  final Color background;
+  final Color color;
+  final LayoutCubit layoutCubit;
+  final LocalData postData;
+  RowButtons({
+    Key? key,
+    this.background = Colors.white,
+    this.color = Colors.grey,
+    required this.layoutCubit,
+    required  this.postData,
+  }) : super(key: key);
 
   final List<Reaction> defaultInitialReaction = [
+
+    /***/
     Reaction(
       icon: BuildReactionsIcon(
         text: 'أعجبنى',
@@ -441,6 +455,65 @@ class RowButtons extends StatelessWidget {
       ),
     ),
     Reaction(
+      icon: BuildReactionsIcon(
+        text: 'أعجبنى',
+        color: primaryColor,
+        iconTtf: LikeFill.like,
+      ),
+    ),
+
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconPng: 'assets/images/facebook_angry_2.png'),
+      icon: BuildReactionsIcon(
+        iconPng: 'assets/images/facebook_angry_2.png',
+        text: 'أغضبني',
+        color: Color(0XFFFF4F2C),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_sad.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/facebook_sad.svg',
+        text: 'أحزنني',
+        color: Color(0XFFFEBE44),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_wow.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/facebook_wow.svg',
+        text: 'واااو',
+        color: Color(0XFFFEBD42),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_haha.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/facebook_haha.svg',
+        text: 'هاهاها',
+        color: Color(0XFFffda6b),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/care.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/care.svg',
+        text: 'أدعمه',
+        color: Color(0XFFffda6b),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_love.svg'),
+      icon: BuildReactionsIcon(
+        iconSvg: 'assets/icons/facebook_love.svg',
+        text: 'أحببته',
+        color: Color(0XFFf05766),
+      ),
+    ),
+    Reaction(
+      previewIcon: BuildReactionsPreviewIcon(
+        iconSvg: 'assets/icons/facebook_like.svg',
+      ),
       icon: BuildReactionsIcon(
         text: 'أعجبنى',
         color: primaryColor,
@@ -510,95 +583,145 @@ class RowButtons extends StatelessWidget {
     ),
   ];
 
-  final Color background;
-  final Color color;
-   RowButtons({
-    Key? key,
-    this.background = Colors.white,
-    this.color = Colors.grey
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LayoutCubit,LayoutStates>(
-      listener: (_, state){},
-      builder: (_, state){
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Row(
-            children: [
-              Expanded(
-                child: Container(
-                  height: 30,
-                  child: Material(
-                    color: background,
-                    child: InkWell(
-                      onTap: () {
-                        print('مشاركة');
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'مشاركة',
-                            style: TextStyle(
-                              color: color,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Icon(
-                            CustomIcons.arrow_curved_to_the_left_svgrepo_com,
-                            color: color,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  height: 30,
-                  child: Material(
-                    color: background,
-                    child: InkWell(
-                      onTap: () {
-                        print('تعليق');
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'تعليق',
-                            style: TextStyle(
-                              color: color,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Icon(
-                            CustomIcons.comment_svgrepo_com,
-                            color: color,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: FlutterReactionButtonCheck(
-                  onReactionChanged: (reaction, index, isChecked) {
-                    print('reaction selected index: $index');
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              height: 30,
+              child: Material(
+                color: background,
+                child: InkWell(
+                  onTap: () {
+                    print('مشاركة');
                   },
-                  reactions: reactions,
-                  initialReaction: defaultInitialReaction[0],
-                  selectedReaction: defaultInitialReaction[1],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'مشاركة',
+                        style: TextStyle(
+                          color: color,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Icon(
+                        CustomIcons.arrow_curved_to_the_left_svgrepo_com,
+                        color: color,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ],
+            ),
           ),
-        );
-      },
+          Expanded(
+            child: Container(
+              height: 30,
+              child: Material(
+                color: background,
+                child: InkWell(
+                  onTap: () {
+                    print('تعليق');
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'تعليق',
+                        style: TextStyle(
+                          color: color,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Icon(
+                        CustomIcons.comment_svgrepo_com,
+                        color: color,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: FlutterReactionButtonCheck(
+              onReactionChanged: (reaction, index, isChecked) {
+                if(isChecked){
+                  if(index == -1 || index == 6){
+                    // اللايك الازرق منور
+                    print('like');
+                    layoutCubit.changeReactions(
+                      react: React.like,
+                      postData: postData,
+                    );
+                    // set data in this post data
+                  }
+                  else{
+                    switch(index){
+                      case 0:
+                        print('angry');
+                        layoutCubit.changeReactions(
+                          react: React.angry,
+                          postData: postData,
+                        );
+                        break;
+                      case 1:
+                        print('sad');
+                        layoutCubit.changeReactions(
+                          react: React.sad,
+                          postData: postData,
+                        );
+                        break;
+                      case 2:
+                        print('wow');
+                        layoutCubit.changeReactions(
+                          react: React.wow,
+                          postData: postData,
+                        );
+                        break;
+                      case 3:
+                        print('haha');
+                        layoutCubit.changeReactions(
+                          react: React.haha,
+                          postData: postData,
+                        );
+                        break;
+                      case 4:
+                        print('care');
+                        layoutCubit.changeReactions(
+                          react: React.care,
+                          postData: postData,
+                        );
+                        break;
+                      case 5:
+                        print('love');
+                        layoutCubit.changeReactions(
+                          react: React.love,
+                          postData: postData,
+                        );
+                        break;
+                    }
+                  }
+                }
+                else{
+                  layoutCubit.changeReactions(
+                    react: React.unLike,
+                    postData: postData,
+                  );
+                  print('UnLike');
+                }
+              },
+              reactions: reactions,
+              initialReaction: initialReaction(postData.rect),
+              selectedReaction: defaultInitialReaction[1],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -628,4 +751,86 @@ void navigateTo({
 // Navigate back Screen
 void navigateBack(context) {
   Navigator.pop(context);
+}
+
+
+Reaction initialReaction(React react) {
+  switch (react) {
+    case React.unLike:
+      return Reaction(
+        icon: BuildReactionsIcon(
+          text: 'أعجبنى',
+          color: Colors.grey,
+          iconTtf: CustomIcons.like_svgrepo_com,
+        ),
+      );
+    case React.like:
+      return Reaction(
+        icon: BuildReactionsIcon(
+          text: 'أعجبنى',
+          color: primaryColor,
+          iconTtf: LikeFill.like,
+        ),
+      );
+    case React.angry:
+      return Reaction(
+        previewIcon: BuildReactionsPreviewIcon(
+            iconPng: 'assets/images/facebook_angry_2.png'),
+        icon: BuildReactionsIcon(
+          iconPng: 'assets/images/facebook_angry_2.png',
+          text: 'أغضبني',
+          color: Color(0XFFFF4F2C),
+        ),
+      );
+    case React.sad:
+      return Reaction(
+        previewIcon:
+            BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_sad.svg'),
+        icon: BuildReactionsIcon(
+          iconSvg: 'assets/icons/facebook_sad.svg',
+          text: 'أحزنني',
+          color: Color(0XFFFEBE44),
+        ),
+      );
+    case React.wow:
+      return Reaction(
+        previewIcon:
+            BuildReactionsPreviewIcon(iconSvg: 'assets/icons/facebook_wow.svg'),
+        icon: BuildReactionsIcon(
+          iconSvg: 'assets/icons/facebook_wow.svg',
+          text: 'واااو',
+          color: Color(0XFFFEBD42),
+        ),
+      );
+    case React.haha:
+      return Reaction(
+        previewIcon: BuildReactionsPreviewIcon(
+            iconSvg: 'assets/icons/facebook_haha.svg'),
+        icon: BuildReactionsIcon(
+          iconSvg: 'assets/icons/facebook_haha.svg',
+          text: 'هاهاها',
+          color: Color(0XFFffda6b),
+        ),
+      );
+    case React.care:
+      return Reaction(
+        previewIcon:
+            BuildReactionsPreviewIcon(iconSvg: 'assets/icons/care.svg'),
+        icon: BuildReactionsIcon(
+          iconSvg: 'assets/icons/care.svg',
+          text: 'أدعمه',
+          color: Color(0XFFffda6b),
+        ),
+      );
+    default:
+      return Reaction(
+        previewIcon: BuildReactionsPreviewIcon(
+            iconSvg: 'assets/icons/facebook_love.svg'),
+        icon: BuildReactionsIcon(
+          iconSvg: 'assets/icons/facebook_love.svg',
+          text: 'أحببته',
+          color: Color(0XFFf05766),
+        ),
+      );
+  }
 }

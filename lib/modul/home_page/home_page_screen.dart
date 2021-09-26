@@ -26,12 +26,14 @@ class HomePageScreen extends StatelessWidget {
 
   List<Widget> componentsPost({
     bool isCovered = false,
+    required LayoutCubit layoutCubit,
     required LocalData postData,
 }){
+
     return [
       MoreOptionPost(postData: postData,isOpenedContainer: true,),
       RowReactions( postData: postData,),
-      RowButtons(),
+      RowButtons(layoutCubit: layoutCubit,postData: postData,),
       //first image
       Container(
         color: Colors.green,
@@ -45,7 +47,7 @@ class HomePageScreen extends StatelessWidget {
         ),
       ),
       RowReactions( postData: postData,),
-      RowButtons(),
+      RowButtons(layoutCubit: layoutCubit,postData: postData,),
       // second image
       Container(
         color: Colors.green,
@@ -59,7 +61,7 @@ class HomePageScreen extends StatelessWidget {
         ),
       ),
       RowReactions( postData: postData,),
-      RowButtons(),
+      RowButtons(layoutCubit: layoutCubit,postData: postData,),
       // third image
       Container(
         color: Colors.green,
@@ -73,7 +75,7 @@ class HomePageScreen extends StatelessWidget {
         ),
       ),
       RowReactions( postData: postData,),
-      RowButtons(),
+      RowButtons(layoutCubit: layoutCubit,postData: postData,),
       // four image
       Container(
         color: Colors.green,
@@ -87,7 +89,7 @@ class HomePageScreen extends StatelessWidget {
         ),
       ),
       RowReactions( postData: postData,),
-      RowButtons(),
+      RowButtons(layoutCubit: layoutCubit,postData: postData,),
       // five image
       Container(
         color: Colors.green,
@@ -101,7 +103,7 @@ class HomePageScreen extends StatelessWidget {
         ),
       ),
       RowReactions( postData: postData,),
-      RowButtons(),
+      RowButtons(layoutCubit: layoutCubit,postData: postData,),
     ];
   }
 
@@ -113,6 +115,8 @@ class HomePageScreen extends StatelessWidget {
       builder: (context, state) {
         List<LocalData> users = LayoutCubit.get(context).persons;
         List<LocalData> posts = LayoutCubit.get(context).posts;
+        LayoutCubit layoutCubit = LayoutCubit.get(context);
+
         return Container(
           color: Colors.grey[400],
           child: SingleChildScrollView(
@@ -434,6 +438,7 @@ class HomePageScreen extends StatelessWidget {
                         moveToIndex: moveToIndex,
                         postData: posts[index],
                         componentsPost: componentsPost,
+                        layoutCubit: layoutCubit,
                       ),
                       separatorBuilder: (_, index) => SizedBox(
                         height: 15,
@@ -441,11 +446,6 @@ class HomePageScreen extends StatelessWidget {
                       itemCount: posts.length,
                     ),
                   ],
-                ),
-                Item(
-                  'image 1',
-                  'assets/images/wel.jpg',
-                  reactions,
                 ),
               ],
             ),
@@ -461,8 +461,9 @@ Widget buildItemPost({
   moveToIndex,
   itemScrollController,
   componentsPost,
-}) =>
-    Container(
+  layoutCubit,
+}) {
+  return Container(
       color: Colors.white,
       child: Wrap(
         alignment: WrapAlignment.end,
@@ -475,21 +476,26 @@ Widget buildItemPost({
             moveToIndex: moveToIndex,
             itemScrollController: itemScrollController,
             componentsPost: componentsPost,
+            layoutCubit: layoutCubit,
           ),
-          ReactPost(post: postData),
+          ReactPost(postData: postData , layoutCubit: layoutCubit,),
         ],
       ),
     );
+}
 
 Widget selectDisplayPost({
   required LocalData postData,
   moveToIndex,
   componentsPost,
   itemScrollController,
+  layoutCubit,
 }) {
+
   List<Widget> selectItem = componentsPost(
     isCovered: true,
     postData: postData,
+    layoutCubit: layoutCubit,
   );
   switch (CounterImages(postData: postData)) {
     case 1:
@@ -563,6 +569,8 @@ Widget selectDisplayPost({
                       RowButtons(
                         background: Colors.black,
                         color: Colors.white,
+                        layoutCubit: layoutCubit,
+                        postData: postData,
                       ),
                     ],
                   ),

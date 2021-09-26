@@ -16,6 +16,7 @@ class LocalData {
   final String? first_rect;
   final String? second_rect;
   final String? thirty_rect;
+  React rect ;
 
   LocalData({
     required this.name,
@@ -35,5 +36,16 @@ class LocalData {
     this.first_rect,
     this.second_rect,
     this.thirty_rect,
+    this.rect = React.unLike,
   });
+}
+enum React {
+  unLike,
+  like,
+  angry,
+  sad,
+  wow,
+  haha,
+  care,
+  love,
 }
