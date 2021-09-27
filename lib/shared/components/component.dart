@@ -650,9 +650,11 @@ class RowButtons extends StatelessWidget {
           Expanded(
             child: FlutterReactionButtonCheck(
               onReactionChanged: (reaction, index, isChecked) {
-                if(isChecked){
+                print(index);
+                print(isChecked);
+                layoutCubit.toggleBool();
+                if(layoutCubit.isCheckedCustom){
                   if(index == -1 || index == 6){
-                    // اللايك الازرق منور
                     print('like');
                     layoutCubit.changeReactions(
                       react: React.like,

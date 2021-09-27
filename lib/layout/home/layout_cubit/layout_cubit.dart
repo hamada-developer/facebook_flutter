@@ -9,6 +9,7 @@ class LayoutCubit extends Cubit<LayoutStates>{
   bool isOpenedHelp = false;
   bool isOpenedSetting = false;
   bool isLong = false;
+  bool isCheckedCustom = false;
   void changeLong(isLong){
     this.isLong = isLong;
     emit(ChangeLong());
@@ -476,5 +477,9 @@ class LayoutCubit extends Cubit<LayoutStates>{
     // posts[index].rect = react;
     postData.rect = react;
     emit(ChangeReactionsState());
+  }
+
+  void toggleBool(){
+    this.isCheckedCustom = !isCheckedCustom;
   }
 }
