@@ -8,3 +8,7 @@ ThemeData lightTheme() {
     ),
   );
 }
+
+ThemeData darkTheme(){
+ return ThemeData.dark();
+}
